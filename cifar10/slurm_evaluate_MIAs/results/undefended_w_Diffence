@@ -1,0 +1,14 @@
+RuntimeError: module compiled against API version 0xe but this version of numpy is 0xd
+./final-all-models/resnet/undefended.pth.tar | train acc 100.0000 | test acc 83.0000
+
+	===>   NN-based attack  ./final-all-models/resnet/undefended.pth.tar
+		===> nn-based-undefended.npy: TPR 21.30% @0.10%FPR | TNR 0.00% @0.10%FNR | AUC 0.6698| ACC 0.6455
+(1000, 10)
+		===> m-entropy-based-undefended.npy: TPR 0.00% @0.10%FPR | TNR 21.95% @0.10%FNR | AUC 0.6587| ACC 0.6490
+		===> confidence-based-undefended.npy: TPR 0.00% @0.10%FPR | TNR 21.80% @0.10%FNR | AUC 0.6609| ACC 0.6493
+		===> entropy-based-undefended.npy: TPR 0.25% @0.10%FPR | TNR 11.75% @0.10%FNR | AUC 0.6449| ACC 0.6370
+		===> loss-based-undefended.npy: TPR 0.00% @0.10%FPR | TNR 21.80% @0.10%FNR | AUC 0.6609| ACC 0.6493
+Best Attack AUC: 0.6698
+Best Attack ACC: 0.6493
+./final-all-models/resnet/undefended.pth.tar | train acc 100.0000 | test acc 83.0000
+running time: 201.09780383110046
