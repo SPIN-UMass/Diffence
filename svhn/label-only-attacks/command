@@ -1,0 +1,1 @@
+srun -c 1 --gpus 1 --gpus-per-task 1  -p 'gpu-preempt' --mem=40000 -t 8:00:00 python dist_attackTwo.py --config ./configs/cifar10.yml --rank 1 --world-size 10
