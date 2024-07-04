@@ -311,3 +311,7 @@ cifar100/slurm_evaluate_MIAs/results/selena
 cifar100/slurm_evaluate_MIAs/results/selena_w_Diffence
 cifar100/slurm_evaluate_MIAs/results/undefended
 cifar100/slurm_evaluate_MIAs/results/undefended_w_Diffence
+cifar100/diff_defense/diff_models/
+cifar100/slurm_evaluate_MIAs/data/
+cifar100/training_log/
+cifar100/slurm_evaluate_MIAs/results/
