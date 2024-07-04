@@ -1,0 +1,106 @@
+trainer:
+  dataset: "cifar100" 
+  classifier: "resnet" # Classifier structure
+  save_tag: relaxloss
+  classifier_epochs: 100
+  num_class: 100
+  criterion: ce
+  augmentation: false
+  batch_size: 128
+  alpha: 1  #lower means higher utility
+  upper: 1
+
+  optimizer: adam
+  lr: 0.001
+  betas: [0.9, 0.999]
+  weight_decay: 1.0e-6
+  momentum: 0.9
+
+  lr_scheduler: None
+  warmup_scheduler: None
+  warmup: 1 #warm up epochs
+
+diff_model:
+  diff_path: 'half.pt'
+  flag_path: 'half.txt'
+
+#***********************************************************************
+# diffusion model
+structure:
+  att_log: "cifar100" # Attacker model path
+  diff_name: "ema_cifar100" # Diff name
+  clf_log: "cifar100" # Classifier model path
+  classifier: "Wide_resnet" # Classifier structure
+  dataset: "CIFAR100" # 
+  bsize: 50 # Batch size
+  start_epoch: 0
+  end_epoch: 99
+
+purification:
+  purify_method: "diff_purify" # purification method in [diff_purify]
+  bsize: 100 # Batch size
+  max_iter: 1 # Default maximum number of iterations 
+  path_number: 10
+  purify_step: 100
+  purify_natural: false # Whether to purify natural images, for time complexity
+  cond: false # whether to use conditional guide
+  guide_mode: SSIM #'LINE' or "EXP" or 'VAR' or "CONSTANT"
+  guide_scale: 70000
+  guide_scale_base: 0
+  ddim_k: 20
+
+classification:
+  checkpoint: "origin" # which *.t7 to choose
+  classify_all_steps: false # Save all logits if true, Only last logit if false
+
+device:
+  diff_device: "cuda:0"
+  clf_device: "cuda:0"
+  rank: 0
+
+net:
+  attention_resolutions: 32,16,8
+  batch_size: 30
+  channel_mult: ''
+  class_cond: false
+  clip_denoised: true
+  diffusion_steps: 1000
+  dropout: 0.0
+  image_size: 256
+  learn_sigma: true
+  model_path: "256x256_diffusion_uncond.pt"
+  noise_schedule: linear
+  num_channels: 256
+  num_head_channels: 64
+  num_heads: 4
+  num_heads_upsample: -1
+  num_res_blocks: 2
+  num_samples: 10000
+  predict_xstart: false
+  resblock_updown: true
+  rescale_learned_sigmas: false
+  rescale_timesteps: false
+  timestep_respacing: '10'
+  use_checkpoint: false
+  use_ddim: true
+  use_fp16: true
+  use_kl: false
+  use_new_attention_order: false
+  use_scale_shift_norm: true
+
+attack:
+  target_model: resnet
+  num_sample: 1000
+  train_size: 25000
+  path: ./final-all-models/resnet/relaxloss.pth.tar 
+  getModelAcy: true
+  isModifyOutput: false
+  attack: all
+  fpr_threshold: 0.001
+  isMemGuard: false
+  prepMemGuard: false
+  memguard_path: None
+  output_folder: attack_outputs
+  save_tag: relaxloss
+  mode: 1 # 1- we have prediction dist for both members and non-members
+  scope: null
