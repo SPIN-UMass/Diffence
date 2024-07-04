@@ -2,13 +2,13 @@ RuntimeError: module compiled against API version 0xe but this version of numpy 
 ./final-all-models/resnet/selena.pth.tar | train acc 85.0000 | test acc 79.2000
 
 	===>   NN-based attack  ./final-all-models/resnet/selena.pth.tar
-		===> nn-based-selena.npy: TPR 0.00% @0.10%FPR | TNR 0.30% @0.10%FNR | AUC 0.5526| ACC 0.5590
+		===> nn-based-selena.npy: TPR 0.00% @0.10%FPR | TNR 0.50% @0.10%FNR | AUC 0.5610| ACC 0.5725
 (1000, 10)
-		===> m-entropy-based-selena.npy: TPR 0.00% @0.10%FPR | TNR 0.25% @0.10%FNR | AUC 0.5557| ACC 0.5725
-		===> confidence-based-selena.npy: TPR 0.00% @0.10%FPR | TNR 0.25% @0.10%FNR | AUC 0.5561| ACC 0.5717
-		===> entropy-based-selena.npy: TPR 0.05% @0.10%FPR | TNR 0.25% @0.10%FNR | AUC 0.5586| ACC 0.5645
-		===> loss-based-selena.npy: TPR 0.00% @0.10%FPR | TNR 0.25% @0.10%FNR | AUC 0.5561| ACC 0.5717
-Best Attack AUC: 0.5586
-Best Attack ACC: 0.5725
+		===> m-entropy-based-selena.npy: TPR 0.00% @0.10%FPR | TNR 0.10% @0.10%FNR | AUC 0.5730| ACC 0.5755
+		===> confidence-based-selena.npy: TPR 0.00% @0.10%FPR | TNR 0.15% @0.10%FNR | AUC 0.5727| ACC 0.5755
+		===> entropy-based-selena.npy: TPR 0.05% @0.10%FPR | TNR 0.50% @0.10%FNR | AUC 0.5845| ACC 0.5795
+		===> loss-based-selena.npy: TPR 0.00% @0.10%FPR | TNR 0.15% @0.10%FNR | AUC 0.5727| ACC 0.5755
+Best Attack AUC: 0.5845
+Best Attack ACC: 0.5795
 ./final-all-models/resnet/selena.pth.tar | train acc 85.0000 | test acc 79.2000
-running time: 198.31677412986755
+running time: 201.65719532966614

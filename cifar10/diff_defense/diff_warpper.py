@@ -69,7 +69,7 @@ class ModelwDiff(nn.Module): #DM trained from scratch
             self.diff_model, FLAGS.beta_1, FLAGS.beta_T, FLAGS.T, img_size=FLAGS.img_size,
             mean_type=FLAGS.mean_type, var_type=FLAGS.var_type).to(next(self.model.parameters()).device)
         self.transform_raw_to_clf = raw_to_clf(self.config.structure.dataset)
-        print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
+        # print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
 
     def parse_config(self, config_path=None):
         with open(config_path, 'r') as f:
@@ -118,7 +118,7 @@ class ModelwDiff_direct_mode3(nn.Module): # just output one randomly selected ve
             self.diff_model, FLAGS.beta_1, FLAGS.beta_T, FLAGS.T, img_size=FLAGS.img_size,
             mean_type=FLAGS.mean_type, var_type=FLAGS.var_type).to(next(self.model.parameters()).device)
         self.transform_raw_to_clf = raw_to_clf(self.config.structure.dataset)
-        print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
+        # print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
 
     def parse_config(self, config_path=None):
         with open(config_path, 'r') as f:
