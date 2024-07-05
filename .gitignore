@@ -51,3 +51,4 @@ svhn/slurm_evaluate_MIAs/configs/sbatch/
 report.py
 test_all.sh
 .gitignore
+cifar10/training_log/

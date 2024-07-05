@@ -34,8 +34,10 @@ from model_factory import *
 
 config = parse_config(args.config)
 args.model = config.trainer.classifier
-model_checkpoint_dir=f'./final-all-models/{args.model}/hamp'
-
+if args.scan_para==0:
+    model_checkpoint_dir=f'./final-all-models/{args.model}/'
+else:
+    model_checkpoint_dir=f'./final-all-models/{args.model}/hamp'
 
 if args.entropy_percentile==0:
     args.entropy_percentile = config.trainer.entropy_percentile
@@ -172,7 +174,7 @@ def get_hms(seconds):
     return h, m, s
 elapsed_time = 0
 
-if args.scan_para==True:
+if args.scan_para==0:
     best_filename = f'{args.model_save_tag}.pth.tar'
 else:
     best_filename = f'{args.model_save_tag}_{args.entropy_percentile}_{args.alpha}.pth.tar'
