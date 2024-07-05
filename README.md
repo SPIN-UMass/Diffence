@@ -39,21 +39,29 @@ Diffence is a robust plug-and-play defense mechanism designed to enhance the mem
     cd cifar10
     ```
 
-2. Download and partition the dataset, as detailed in the experiment setup section:
+2. Download and partition the dataset:
 
     ```bash
     python data_partition.py
     ```
 
+3. Obtain the diffusion model used for Diffence:
+
+    We provide our pretrained diffusion model checkpoints [here](https://drive.google.com/drive/folders/144wk3X0lKnRPNK5KM4FJxvjGJH-_6Xlo?usp=sharing). Copy the `diff_models` to the corresponding `diff_defense` folder, e.g., `cifar10/diff_defense/diff_models`.
+
+    (Optional) Train the diffusion model using [this repository](https://github.com/w86763777/pytorch-ddpm).
+
 ### Execution
 
-1. Train the undefended model and models with existing defenses (optional):
+1. Train the undefended model and models with existing defenses:
 
     ```bash
     bash all-train-all.sh
     ```
-    
-    You can use the pretrained models we provide or retrain specific defended models using the commands listed in `all-train-all.sh`.
+
+    Our pretrained models are available [here](https://drive.google.com/drive/folders/144wk3X0lKnRPNK5KM4FJxvjGJH-_6Xlo?usp=sharing). Copy them to the `final-all-models` folder, e.g., `cifar10/final-all-models/resnet/selena.pth.tar`.
+
+    (Optional) You can retrain specific defended models using the commands listed in `all-train-all.sh`.
 
 2. Test model accuracy and membership privacy:
 
@@ -66,8 +74,6 @@ After completion, the results of the above experiments will be saved in the `./r
 
 ### Results
 
-The results will be saved in `Diffence/[dataset_name]/evaluate_MIAs/results`. For example, `selena` and `selena_w_Diffence` correspond to the results of using SELENA defense alone and deploying Diffence on top of it, respectively.
-
-
+The results will be saved in `Diffence/[dataset_name]/evaluate_MIAs/results`. For example, `selena` and `selena_w_diffence` correspond to the results of using SELENA defense alone and deploying Diffence on top of it, respectively.
 
 
