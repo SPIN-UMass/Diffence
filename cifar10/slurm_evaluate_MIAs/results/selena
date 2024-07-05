@@ -2,7 +2,7 @@ RuntimeError: module compiled against API version 0xe but this version of numpy 
 ./final-all-models/resnet/selena.pth.tar | train acc 85.0000 | test acc 79.2000
 
 	===>   NN-based attack  ./final-all-models/resnet/selena.pth.tar
-		===> nn-based-selena.npy: TPR 0.00% @0.10%FPR | TNR 0.10% @0.10%FNR | AUC 0.5840| ACC 0.5775
+		===> nn-based-selena.npy: TPR 0.00% @0.10%FPR | TNR 0.00% @0.10%FNR | AUC 0.5789| ACC 0.5820
 (1000, 10)
 		===> m-entropy-based-selena.npy: TPR 0.00% @0.10%FPR | TNR 0.05% @0.10%FNR | AUC 0.5850| ACC 0.6013
 		===> confidence-based-selena.npy: TPR 0.00% @0.10%FPR | TNR 0.05% @0.10%FNR | AUC 0.5856| ACC 0.6012
@@ -11,4 +11,4 @@ RuntimeError: module compiled against API version 0xe but this version of numpy 
 Best Attack AUC: 0.6177
 Best Attack ACC: 0.6133
 ./final-all-models/resnet/selena.pth.tar | train acc 85.0000 | test acc 79.2000
-running time: 184.41381549835205
+running time: 222.53000330924988
