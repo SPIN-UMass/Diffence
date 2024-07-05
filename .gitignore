@@ -50,3 +50,4 @@ results/
 svhn/slurm_evaluate_MIAs/configs/sbatch/
 report.py
 test_all.sh
+.gitignore
