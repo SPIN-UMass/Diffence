@@ -169,7 +169,7 @@ def get_hms(seconds):
     return h, m, s
 elapsed_time = 0
 
-if args.scan_para==True:
+if args.scan_para==0:
     best_filename=f'{args.model_save_tag}.pth.tar'
 else:
     best_filename=f'{args.model_save_tag}_{alpha}.pth.tar'
@@ -211,7 +211,7 @@ if(is_train_org):
 
 criterion=nn.CrossEntropyLoss()
 best_model=create_model(model_name = args.model, num_classes=num_classes).to(device)
-if args.scan_para==True:
+if args.scan_para==0:
     resume_best=os.path.join(org_model_checkpoint_dir,f'{args.model_save_tag}.pth.tar')
 else:
     resume_best=os.path.join(org_model_checkpoint_dir,f'{args.model_save_tag}_{alpha}.pth.tar')

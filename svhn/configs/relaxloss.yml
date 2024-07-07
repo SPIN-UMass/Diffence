@@ -7,7 +7,7 @@ trainer:
   criterion: ce
   augmentation: false
   batch_size: 128
-  alpha: 1  #lower means higher utility
+  alpha: 0.02  #lower means higher utility
   upper: 1
 
   optimizer: adam

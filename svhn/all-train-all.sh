@@ -18,6 +18,7 @@ echo "Training HAMP model"
 sbatch train-hamp.sh 
 
 echo "Training Relaxloss model"
+# bash train-hamp-parallel.sh #scan parameters (optional)
 sbatch train-relaxloss.sh
 
 echo "Training DPSGD model"

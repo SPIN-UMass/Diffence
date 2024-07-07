@@ -374,7 +374,7 @@ if args.diff!=0:
         # scope=[bins2[np.argmax(n2)],bins1[np.argmax(n1)]]
         scope=[np.min(mem_logits),np.max(nonmem_logits)]
         # print('scope',scope)
-        step = (scope[1]-scope[0])/10
+        step = (scope[1]-scope[0])/20
         s_max = scope[1]
         s_min = scope[0]
         for i in np.arange(s_min,s_max+step,step):
@@ -782,7 +782,7 @@ if(config.attack.attack == 'nn' or config.attack.attack == 'all' ):
     attack_accs.append(atk_acc)
 
 if(config.attack.attack == 'entropy' or config.attack.attack == 'all'):
-    print(target_train_performance[0].shape)
+    # print(target_train_performance[0].shape)
 
     #print("\t===> correctness-based, entropy-based, m-entropy-based-, confidence-based attacks ", config.attack.path)
     MIA = black_box_benchmarks(shadow_train_performance,shadow_test_performance,

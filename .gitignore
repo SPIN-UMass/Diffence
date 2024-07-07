@@ -52,3 +52,4 @@ report.py
 test_all.sh
 .gitignore
 cifar10/training_log/
+celeba/

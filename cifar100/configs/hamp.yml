@@ -7,9 +7,9 @@ trainer:
   criterion: ce
   augmentation: false
   batch_size: 128
-  entropy_percentile: 0.005  # lower means higher utility
+  entropy_percentile: 0.99  # lower means higher utility
   entropy_penalty: 1
-  alpha: 0.001
+  alpha: 0.005
 
   optimizer: adam
   lr: 0.001

@@ -215,7 +215,7 @@ if(is_train_ref):
 
 criterion=nn.CrossEntropyLoss()
 best_model=create_model(model_name = args.model, num_classes=num_classes).to(device)
-if args.scan_para==True:
+if args.scan_para==0:
     resume_best= os.path.join(new_model_checkpoint_dir, f'{args.model_save_tag}.pth.tar')
 else:
     resume_best= os.path.join(new_model_checkpoint_dir, f'{args.model_save_tag}_{args.entropy_percentile}_{args.alpha}.pth.tar')

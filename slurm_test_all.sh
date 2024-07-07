@@ -1,9 +1,8 @@
 #!/bin/bash
 
 # Declare arrays of alpha and entropy_percentile values
-datasets=('cifar10' 'cifar100' 'svhn')
-defenses=('undefended' 'selena' 'hamp' 'relaxloss')
-# defenses=('undefended' 'selena')
+datasets=( 'cifar10' 'cifar100' 'svhn')
+defenses=( 'undefended'  'selena')
 
 cur_dir=$(pwd)
 # Loop over each alpha
@@ -21,8 +20,8 @@ for dataset in "${datasets[@]}"; do
 
       echo "Evaluating MIAs"
       mkdir -p $cur_dir/results/$dataset/
-      srun -c 1 -G 1 -p gypsum-2080ti --mem=100000 python dist_attack.py --config ./configs/${defense}.yml --world-size 10 &> $cur_dir/results/$dataset/${defense} &
-      srun -c 1 -G 1 -p gypsum-2080ti --mem=100000 python dist_attack.py --config ./configs/${defense}.yml --world-size 10  --diff 1 &> $cur_dir/results/$dataset/${defense}_w_Diffence &
+      srun -c 1 -G 1 -p gypsum-rtx8000 --mem=100000 python dist_attack.py --config ./configs/${defense}.yml --world-size 10 &> $cur_dir/results/$dataset/${defense} &
+      srun -c 1 -G 1 -p gypsum-rtx8000 --mem=100000 python dist_attack.py --config ./configs/${defense}.yml --world-size 10  --diff 1 &> $cur_dir/results/$dataset/${defense}_w_Diffence &
   done
 done
 
