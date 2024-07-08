@@ -59,7 +59,7 @@ Diffence is a robust plug-and-play defense mechanism designed to enhance the mem
     bash all-train-all.sh
     ```
 
-    Our pretrained models are available [here](https://drive.google.com/drive/folders/144wk3X0lKnRPNK5KM4FJxvjGJH-_6Xlo?usp=sharing). Copy them to the `final-all-models` folder, e.g., `cifar10/final-all-models/resnet/selena.pth.tar`.
+    Our pretrained models are available [here](https://drive.google.com/drive/folders/1KNn7ycsjSaQ-wpfpz-UgY2cPuvrdEMLL?usp=sharing). Copy them to the `final-all-models` folder, e.g., `cifar10/final-all-models/resnet/selena.pth.tar`.
 
     (Optional) You can retrain specific defended models using the commands listed in `all-train-all.sh`.
 
