@@ -256,7 +256,7 @@ if(config.attack.prepMemGuard):
     from scipy.special import softmax 
     tf.disable_eager_execution()
 
-    user_label_dim=10
+    user_label_dim=config.trainer.num_class
     num_classes=1
 
     config_gpu = tf.ConfigProto()
@@ -461,15 +461,15 @@ if(config.attack.prepMemGuard):
 
 
     # these the conf scores after memguard
-    np.save(os.path.join(file_path, f'memguard_known_member_%s_{world_size}_{rank}.npy'%str(config.attack.train_size)), result_array[:len1])
-    np.save(os.path.join(file_path, f'memguard_test_member_%s_{world_size}_{rank}.npy'%str(config.attack.train_size)), result_array[len1:len1+len2])
-    np.save(os.path.join(file_path, f'memguard_known_nonmember_%s_{world_size}_{rank}.npy'%str(config.attack.train_size)), result_array[len1+len2:len1+len2+len1])
-    np.save(os.path.join(file_path, f'memguard_test_non_member_%s_{world_size}_{rank}.npy'%str(config.attack.train_size)), result_array[len1+len2+len1:])
+    np.save(os.path.join(file_path, f'memguard_known_member_{world_size}_{rank}.npy'), result_array[:len1])
+    np.save(os.path.join(file_path, f'memguard_test_member_{world_size}_{rank}.npy'), result_array[len1:len1+len2])
+    np.save(os.path.join(file_path, f'memguard_known_nonmember_{world_size}_{rank}.npy'), result_array[len1+len2:len1+len2+len1])
+    np.save(os.path.join(file_path, f'memguard_test_non_member_{world_size}_{rank}.npy'), result_array[len1+len2+len1:])
 
-    np.save(os.path.join(file_path, f'memguard_known_member_logit_%s_{world_size}_{rank}.npy'%str(config.attack.train_size)), result_array_logits[:len1])
-    np.save(os.path.join(file_path, f'memguard_test_member_logit_%s_{world_size}_{rank}.npy'%str(config.attack.train_size)), result_array_logits[len1:len1+len2])
-    np.save(os.path.join(file_path, f'memguard_known_nonmember_logit_%s_{world_size}_{rank}.npy'%str(config.attack.train_size)), result_array_logits[len1+len2:len1+len2+len1])
-    np.save(os.path.join(file_path, f'memguard_test_non_member_logit_%s_{world_size}_{rank}.npy'%str(config.attack.train_size)), result_array_logits[len1+len2+len1:])
+    np.save(os.path.join(file_path, f'memguard_known_member_logit_{world_size}_{rank}.npy'), result_array_logits[:len1])
+    np.save(os.path.join(file_path, f'memguard_test_member_logit_{world_size}_{rank}.npy'), result_array_logits[len1:len1+len2])
+    np.save(os.path.join(file_path, f'memguard_known_nonmember_logit_{world_size}_{rank}.npy'), result_array_logits[len1+len2:len1+len2+len1])
+    np.save(os.path.join(file_path, f'memguard_test_non_member_logit_{world_size}_{rank}.npy'), result_array_logits[len1+len2+len1:])
     sys.exit() 
 # for test target model 
 else:

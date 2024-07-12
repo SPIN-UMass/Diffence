@@ -49,8 +49,11 @@ def clf_to_raw(dset):
         )
         return transform
     else:
+        mean = [0.5, 0.5, 0.5]
+        std = [0.5,0.5,0.5]
         transform = transforms.Compose(
             [
+                transforms.Normalize((-1.0*mean[0]/std[0], -1.0*mean[1]/std[1], -1.0*mean[2]/std[2]), (1./std[0], 1./std[1], 1./std[2])),
             ]
         )
         return transform
@@ -84,8 +87,11 @@ def raw_to_clf(dset):
         )
         return transform
     else:
+        mean = (0.5, 0.5, 0.5)
+        std = (0.5, 0.5, 0.5)
         transform = transforms.Compose(
             [
+                transforms.Normalize(mean, std)
             ]
         )
         return transform

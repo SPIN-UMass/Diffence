@@ -176,15 +176,15 @@ def get_outputs_labels_memguard(islogits=False):
 
     for rank in range(world_size):
         if islogits==False:
-            shadow_train_performance_outputs.append(np.load(os.path.join(data_path, 'memguard_defense_results', f'memguard_known_member_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
-            shadow_test_performance_outputs.append(np.load(os.path.join(data_path, f'memguard_defense_results', f'memguard_known_nonmember_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
-            target_train_performance_outputs.append(np.load(os.path.join(data_path, f'memguard_defense_results', f'memguard_test_member_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
-            target_test_performance_outputs.append(np.load(os.path.join(data_path, f'memguard_defense_results', f'memguard_test_non_member_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
+            shadow_train_performance_outputs.append(np.load(os.path.join(data_path, 'memguard_defense_results', f'memguard_known_member_{world_size}_{rank}.npy')))
+            shadow_test_performance_outputs.append(np.load(os.path.join(data_path, f'memguard_defense_results', f'memguard_known_nonmember_{world_size}_{rank}.npy')))
+            target_train_performance_outputs.append(np.load(os.path.join(data_path, f'memguard_defense_results', f'memguard_test_member_{world_size}_{rank}.npy')))
+            target_test_performance_outputs.append(np.load(os.path.join(data_path, f'memguard_defense_results', f'memguard_test_non_member_{world_size}_{rank}.npy')))
         else:
-            shadow_train_performance_outputs.append(np.load(os.path.join(data_path, 'memguard_defense_results', f'memguard_known_member_logit_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
-            shadow_test_performance_outputs.append(np.load(os.path.join(data_path, f'memguard_defense_results', f'memguard_known_nonmember_logit_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
-            target_train_performance_outputs.append(np.load(os.path.join(data_path, f'memguard_defense_results', f'memguard_test_member_logit_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
-            target_test_performance_outputs.append(np.load(os.path.join(data_path, f'memguard_defense_results', f'memguard_test_non_member_logit_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
+            shadow_train_performance_outputs.append(np.load(os.path.join(data_path, 'memguard_defense_results', f'memguard_known_member_logit_{world_size}_{rank}.npy')))
+            shadow_test_performance_outputs.append(np.load(os.path.join(data_path, f'memguard_defense_results', f'memguard_known_nonmember_logit_{world_size}_{rank}.npy')))
+            target_train_performance_outputs.append(np.load(os.path.join(data_path, f'memguard_defense_results', f'memguard_test_member_logit_{world_size}_{rank}.npy')))
+            target_test_performance_outputs.append(np.load(os.path.join(data_path, f'memguard_defense_results', f'memguard_test_non_member_logit_{world_size}_{rank}.npy')))
 
     shadow_train_performance_outputs=np.concatenate(shadow_train_performance_outputs)
     shadow_test_performance_outputs=np.concatenate(shadow_test_performance_outputs)
@@ -466,15 +466,15 @@ def get_outputs_labels_memguard(islogits=False):
     
     for rank in range(world_size):
         if islogits==False:
-            shadow_train_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_known_member_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
-            shadow_test_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_known_nonmember_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
-            target_train_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_test_member_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
-            target_test_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_test_non_member_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
+            shadow_train_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_known_member_{world_size}_{rank}.npy')))
+            shadow_test_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_known_nonmember_{world_size}_{rank}.npy')))
+            target_train_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_test_member_{world_size}_{rank}.npy')))
+            target_test_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_test_non_member_{world_size}_{rank}.npy')))
         else:
-            shadow_train_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_known_member_logit_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
-            shadow_test_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_known_nonmember_logit_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
-            target_train_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_test_member_logit_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
-            target_test_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_test_non_member_logit_%s_{world_size}_{rank}.npy'%str(config.attack.train_size))))
+            shadow_train_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_known_member_logit_{world_size}_{rank}.npy')))
+            shadow_test_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_known_nonmember_logit_{world_size}_{rank}.npy')))
+            target_train_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_test_member_logit_{world_size}_{rank}.npy')))
+            target_test_performance_outputs.append(np.load(os.path.join(file_path, f'memguard_test_non_member_logit_{world_size}_{rank}.npy')))
 
 
     shadow_train_performance_outputs=np.concatenate(shadow_train_performance_outputs)
