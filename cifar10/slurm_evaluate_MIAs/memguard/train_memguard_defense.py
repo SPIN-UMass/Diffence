@@ -148,6 +148,8 @@ shadow_train_performance = (np.concatenate([shadow_train_performance[0],target_t
 shadow_test_performance = (np.concatenate([shadow_test_performance[0],target_test_performance[0]]),\
                             np.concatenate([shadow_test_performance[1],target_test_performance[1]]))
 
+# shadow_test_performance = test_target_test_performance
+
 print(shadow_train_performance[0].shape,shadow_test_performance[0].shape)
 
 # if(config.attack.getModelAcy):
@@ -218,14 +220,16 @@ for i in np.arange(defense_epochs):
         print('Train loss:', scores_train[0])
         print('Train accuracy:', scores_train[1])    
     
-defense_model_path = f'./slurm_evaluate_MIAs/memguard'
+defense_model_path = f'./slurm_evaluate_MIAs/memguard/{config.attack.target_model}'
 # defense_model_path = os.path.join(defense_model_path, f'memguard_diff{args.diff}_{config.attack.save_tag}')
 if not os.path.exists(defense_model_path ):
         os.makedirs(defense_model_path)
 model.save(os.path.join(defense_model_path, f'memguard_diff{args.diff}_{config.attack.save_tag}'))
 
-weights=model.get_weights()
-np.savez(os.path.join(defense_model_path, f'memguard_diff{args.diff}_{config.attack.save_tag}.npz'),x=weights)
+print(model.predict(b_train[:10]))
+print(sum(label_train))
+# weights=model.get_weights()
+# np.savez(os.path.join(defense_model_path, f'memguard_diff{args.diff}_{config.attack.save_tag}.npz'),x=weights)
 
 end = time.time()
 print('running time:', end-start)

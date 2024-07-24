@@ -9,12 +9,16 @@
 #SBATCH -o ./training_log/sbatch/slurm-%j.out  # %j = job ID
 
 tag=0
-
+model=''
 while [ $# -gt 0 ]; do
   case "$1" in
     --tag)
       tag="$2"  # Capture the value next to --tag
       shift 2   # Move the argument pointer past the value
+      ;;
+    --model)
+      model="$2" 
+      shift 2 
       ;;
     *)          # If the argument doesn't match any known options, exit the loop
       break
@@ -22,5 +26,5 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-mkdir -p ./training_log/selena_sub
-python ./model_training/train-selena-parallel.py --train_org 1 --train_selena 0 --i $tag &> ./training_log/selena_sub/$tag
+mkdir -p ./training_log/$model/selena_sub
+python ./model_training/train-selena-parallel.py --train_org 1 --train_selena 0 --i $tag --config ./configs/$model/selena.yml &> ./training_log/$model/selena_sub/$tag

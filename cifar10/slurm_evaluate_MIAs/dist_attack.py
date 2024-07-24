@@ -4,6 +4,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--config', type=str, default='./configs/default.yml')  
 parser.add_argument('--world-size', type=int, required=True)  
 parser.add_argument('--diff', type=int, default=0)  
+parser.add_argument('--mode', type=int, default=0)  
+parser.add_argument('--N', type=int, default=0) 
+parser.add_argument('--T', type=int, default=0) 
 args = parser.parse_args()
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, classification_report, confusion_matrix
 import torch
@@ -46,6 +49,17 @@ def parse_config(config_path=None):
         new_config = dict2namespace(config)
     return new_config
 config = parse_config(args.config)
+
+if args.mode==0:
+    mode = config.attack.mode
+else:
+    mode = args.mode
+
+if not args.N == 0:
+    config.purification.path_number = args.N
+if not args.T == 0:
+    config.purification.purify_step = args.T
+
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -291,7 +305,6 @@ def get_entropy(opredictions,num_classes=10):
 
 def aggregate_predictions(predictions,p_labels, scope, config):
 
-    mode =  config.attack.mode
     # scope = SCOPE
     N,P,C=predictions.shape
     predictions_flat = predictions.reshape(N*P,C)
@@ -361,9 +374,9 @@ if args.diff!=0:
     plt.legend(loc = "best",fontsize=15)
     plt.savefig(f'{data_path}/logit_dist.png',dpi=300,bbox_inches='tight')
 
-    if config.attack.mode ==2:
+    if mode == 2:
         SCOPE=[np.min(mem_logits),np.mean(mem_logits)]
-    elif config.attack.mode ==3:
+    elif mode == 3:
         SCOPE=[np.min(nonmem_logits),np.max(mem_logits)]
 
     if SCOPE == None:
@@ -409,7 +422,6 @@ if args.diff!=0:
     target_train_performance = aggregate_predictions(target_train_performance[0],target_train_performance[1],SCOPE, config), target_train_performance[1], target_train_performance[2]
     target_test_performance = aggregate_predictions(target_test_performance[0],target_test_performance[1],SCOPE, config), target_test_performance[1], target_test_performance[2]
 
-mode = config.attack.mode
 if args.diff!=0:
     memguard_logit_path=os.path.join(data_path, f'logits_for_memguard_{mode}.npz')  
 else:
@@ -419,7 +431,6 @@ np.savez( memguard_logit_path,\
                     shadow_test_performance_logits=shadow_test_performance[0],target_train_performance_logits=target_train_performance[0],\
                     target_test_performance_logits=target_test_performance[0])
             
-    
 #draw plot after defense
 plt.figure(figsize=(8,5), dpi= 100)
 
@@ -443,7 +454,7 @@ plt.xlabel("Logit of the Confidences",fontsize=15)#横坐标名字
 plt.ylabel("#Samples",fontsize=15)
 # plt.title(f'dist',fontsize=20)
 plt.legend(loc = "best",fontsize=15)
-plt.savefig(f'{data_path}/logit_dist_{args.diff}_{config.attack.mode}.png',dpi=300,bbox_inches='tight')
+plt.savefig(f'{data_path}/logit_dist_{args.diff}_{mode}.png',dpi=300,bbox_inches='tight')
 
 test_target_train_performance = softmax(test_target_train_performance[0],1),test_target_train_performance[2]
 test_target_test_performance = softmax(test_target_test_performance[0],1),test_target_test_performance[2]
@@ -460,7 +471,7 @@ def get_outputs_labels_memguard(islogits=False):
 
     if args.diff!=0:
         scope = SCOPE
-        file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_{config.attack.mode}')
+        file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_{mode}')
     else:
         file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_diff0')
     

@@ -37,18 +37,19 @@ MODEL_NAME_MAP = {
     'PreActResNet18': models.PreActResNet18,
     'densenet': densenet,
     'inception': models.inceptionv3,
-    'vgg':models.vgg19_bn,
+    'vgg16':models.vgg16_bn,
     'advreg-densenet':densenet_advreg.densenet,
     'resnet20':models.resnet20,
     'resnet50': models.resnet50,
     'resnet18': models.resnet18,
     'resnet18-100': models.resnet18,
     'densenet121': models.densenet121,
-    'ViT-B_16': models.ViTB_16,
-    'ViT': models.ViT_Base, #fast
+    'ViT': models.ViT_4,
+    'ViT1': models.ViTB_16,
+    'ViT2': models.ViT_Base, #fast
     'ViT3': models.vit_base, 
-    'ViT4': models.ViT_4
 }
+
 
 def create_model(model_name,state_file=None,num_classes=10):
     if model_name not in MODEL_NAME_MAP:

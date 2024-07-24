@@ -163,10 +163,16 @@ class ModelwDiff_v2(nn.Module): #pretrained DM on ImageNet
     def __init__(self, model, args=None):
         super(ModelwDiff_v2, self).__init__()
         self.model = model
+        self.args=args
         self.load_diff_config(args.config)
 
     def load_diff_config(self, config_path):
         self.config = self.parse_config(config_path)
+        if not self.args.N == 0:
+            self.config.purification.path_number = self.args.N
+        if not self.args.T == 0:
+            self.config.purification.purify_step = 1
+            self.config.net.timestep_respacing= 'ddim' + str(1000//int(self.args.T))
         DATASET_PATH = os.path.join(pathlib.Path(__file__).parent.resolve(),'./diff_models')
         ckpt = os.path.join(DATASET_PATH, self.config.net.model_path)
         self.diff_model, self.diffusion = create_model_and_diffusion(

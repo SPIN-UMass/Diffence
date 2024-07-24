@@ -5,6 +5,9 @@ parser.add_argument('--config', type=str)
 parser.add_argument('--world-size', type=int, required=True)  
 parser.add_argument('--rank', type=int)   
 parser.add_argument('--diff', type=int, default='0')
+parser.add_argument('--N', type=int, default=0) 
+parser.add_argument('--T', type=int, default=0) 
+parser.add_argument('--mode', type=int, default=0)  
 args = parser.parse_args()
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, classification_report, confusion_matrix
 import torch
@@ -48,6 +51,14 @@ def parse_config(config_path=None):
         new_config = dict2namespace(config)
     return new_config
 config = parse_config(args.config)
+
+if not args.N == 0:
+    config.purification.path_number = args.N
+if not args.T == 0:
+    config.purification.purify_step = args.T
+
+if not args.mode == 0:
+    config.attack.mode=args.mode
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -184,9 +195,9 @@ checkpoint = torch.load(resume_best, map_location='cuda')
 best_model.load_state_dict(checkpoint['state_dict'])
 #YF
 if args.diff == 1:
-    best_model =  ModelwDiff(best_model, config_path=args.config)
+    best_model =  ModelwDiff(best_model,  args)
 elif args.diff ==2: #pretrained model
-    best_model =  ModelwDiff_v2(best_model, config_path=args.config)
+    best_model =  ModelwDiff_v2(best_model, args)
 
 BATCH_SIZE=100
 if hasattr(best_model, 'config'):
@@ -243,11 +254,8 @@ if(config.attack.prepMemGuard):
     from scipy.special import softmax
 
     if args.diff!=0:
-        if not config.attack.mode==3:
-            scope = config.attack.scope
-            memguard_logit_path=os.path.join(data_path, f'logits_for_memguard_{config.attack.mode}.npz')
-        else:
-            memguard_logit_path=os.path.join(data_path, f'logits_for_memguard_{config.attack.mode}_{config.attack.metric}_{config.attack.strategy}.npz')
+        scope = config.attack.scope
+        memguard_logit_path=os.path.join(data_path, f'logits_for_memguard_{config.attack.mode}.npz')
     else:
         memguard_logit_path=os.path.join(data_path, f'logits_for_memguard_diff0.npz')
     
@@ -348,7 +356,7 @@ if(config.attack.prepMemGuard):
         return model
 
     from tensorflow.keras.models import load_model
-    defense_model_path = f'./slurm_evaluate_MIAs/memguard/'
+    defense_model_path = f'./slurm_evaluate_MIAs/memguard/{config.attack.target_model}'
     # defense_model_path = os.path.join(defense_model_path, f'memguard_diff{args.diff}_{config.attack.save_tag}')
     defense_model_path = os.path.join(defense_model_path, f'memguard_diff0_{config.attack.save_tag}')
     defense_model = load_model( defense_model_path )
@@ -464,11 +472,8 @@ if(config.attack.prepMemGuard):
     print('\n====> evaluate accuracy on model:', scores_evaluate[1])
 
     if args.diff!=0:
-        if config.attack.mode==1:
-            scope = config.attack.scope
-            file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_{config.attack.mode}')
-        else:
-            file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_{config.attack.mode}_{config.attack.metric}_{config.attack.strategy}')
+        scope = config.attack.scope
+        file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_{config.attack.mode}')
     else:
         file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_diff0')
     if not os.path.exists(file_path):

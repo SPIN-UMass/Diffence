@@ -139,6 +139,11 @@ assert os.path.isfile(resume_best), 'Error: no checkpoint directory found for be
 checkpoint = os.path.dirname(resume_best)
 checkpoint = torch.load(resume_best)
 best_model.load_state_dict(checkpoint['state_dict'])
+
+privateset = torch.utils.data.Subset(privateset, range(config.attack.num_sample))
+testset = torch.utils.data.Subset(testset, range(config.attack.num_sample))
+private_dataloader = torch.utils.data.DataLoader(privateset, batch_size=BATCH_SIZE, shuffle=False)
+test_dataloader = torch.utils.data.DataLoader(testset, batch_size=BATCH_SIZE, shuffle=False)
 _,best_val = test(test_dataloader, best_model, criterion, use_cuda, device=device)
 _,best_train = test(private_dataloader, best_model, criterion, use_cuda, device=device)
 print('\t===> Undefended model %s | train acc %.4f | val acc %.4f '%(resume_best, best_train, best_val), flush=True)

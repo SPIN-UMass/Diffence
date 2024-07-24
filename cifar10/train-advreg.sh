@@ -6,5 +6,18 @@
 #SBATCH --partition gpu-long  # Job time limit
 #SBATCH -o ./training_log/sbatch/slurm-%j.out  # %j = job ID
 
-mkdir -p ./training_log/
-python ./model_training/train-advreg.py &> ./training_log/advreg
+model=''
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --model)
+      model="$2"
+      shift 2
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+mkdir -p ./training_log/$model
+python ./model_training/train-advreg.py --config ./configs/$model/advreg.yml &> ./training_log/$model/advreg

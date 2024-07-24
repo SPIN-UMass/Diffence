@@ -1,0 +1,52 @@
+srun: job 23875218 queued and waiting for resources
+srun: job 23875218 has been allocated resources
+RuntimeError: module compiled against API version 0xe but this version of numpy is 0xd
+/home/yuefengpeng_umass_edu/miniconda3/envs/all/lib/python3.8/site-packages/tensorflow/python/keras/optimizer_v2/optimizer_v2.py:374: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
+  warnings.warn(
+(25000, 10) (10000, 10)
+True
+(35000, 10) (35000, 10) (35000,)
+Model: "model"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_1 (InputLayer)         [(None, 10)]              0         
+_________________________________________________________________
+dense (Dense)                (None, 256)               2816      
+_________________________________________________________________
+dense_1 (Dense)              (None, 128)               32896     
+_________________________________________________________________
+dense_2 (Dense)              (None, 64)                8256      
+_________________________________________________________________
+dense_3 (Dense)              (None, 1)                 65        
+_________________________________________________________________
+activation (Activation)      (None, 1)                 0         
+=================================================================
+Total params: 44,033
+Trainable params: 44,033
+Non-trainable params: 0
+_________________________________________________________________
+Epochs: 49
+Train loss: 0.590650737285614
+Train accuracy: 0.7142857313156128
+Epochs: 99
+Train loss: 0.5833402872085571
+Train accuracy: 0.7142857313156128
+Epochs: 149
+Train loss: 0.572909951210022
+Train accuracy: 0.7324000000953674
+Epochs: 199
+Train loss: 0.5598411560058594
+Train accuracy: 0.7447428703308105
+[[0.7335414 ]
+ [0.73354524]
+ [0.7336142 ]
+ [0.7335046 ]
+ [0.7336149 ]
+ [0.7336152 ]
+ [0.7336151 ]
+ [0.7336124 ]
+ [0.7336097 ]
+ [0.7336151 ]]
+25000
+running time: 447.7948899269104

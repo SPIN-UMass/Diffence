@@ -6,5 +6,18 @@
 #SBATCH --partition gpu-preempt  # Job time limit
 #SBATCH -o ./training_log/sbatch/slurm-%j.out  # %j = job ID
 
-mkdir -p ./training_log/
-python ./model_training/train-org.py &> ./training_log/undefended
+model=''
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --model)
+      model="$2"
+      shift 2
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+mkdir -p ./training_log/$model
+python ./model_training/train-org.py --config ./configs/$model/undefended.yml &> ./training_log/$model/undefended
