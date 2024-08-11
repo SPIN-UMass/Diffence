@@ -134,7 +134,7 @@ def get_soft_labels(train_label, num_classes, top1, uniform_non_top1):
         new_soft_label[i][train_label[i]] = top1
         new_soft_label[i][:train_label[i]] = uniform_non_top1
         new_soft_label[i][train_label[i]+1:] = uniform_non_top1
-    print( new_soft_label[0], train_label[0], np.argmax(new_soft_label[0]) )
+    # print( new_soft_label[0], train_label[0], np.argmax(new_soft_label[0]) )
     return new_soft_label
 
 use_cuda = torch.cuda.is_available()
@@ -144,7 +144,7 @@ preds /= float(num_class)
 highest_entropy = entropy(preds) 
 # assign uniform class prob for all the non-top-1 classes
 top1, uniform_non_top1 = get_top1(num_class, highest_entropy*args.entropy_percentile)
-print("Highest entropy {:.4f} | entropy_percentile {:.4f} | entropy threshold {:.4f}".format(highest_entropy , args.entropy_percentile, highest_entropy*args.entropy_percentile))
+# print("Highest entropy {:.4f} | entropy_percentile {:.4f} | entropy threshold {:.4f}".format(highest_entropy , args.entropy_percentile, highest_entropy*args.entropy_percentile))
 
 
 private_label_modified = get_soft_labels(privateset.labels, num_class, top1, uniform_non_top1)
@@ -223,6 +223,11 @@ assert os.path.isfile(resume_best), 'Error: no checkpoint directory found for be
 checkpoint = os.path.dirname(resume_best)
 checkpoint = torch.load(resume_best)
 best_model.load_state_dict(checkpoint['state_dict'])
+
+privateset = torch.utils.data.Subset(privateset, range(config.attack.num_sample))
+testset = torch.utils.data.Subset(testset, range(config.attack.num_sample))
+private_dataloader = torch.utils.data.DataLoader(privateset, batch_size=BATCH_SIZE, shuffle=False)
+test_dataloader = torch.utils.data.DataLoader(testset, batch_size=BATCH_SIZE, shuffle=False)
 _,best_val = test(test_dataloader, best_model, criterion, use_cuda, device=device)
-_,best_train = test(private_dataloader_origin, best_model, criterion, use_cuda, device=device)
+_,best_train = test(private_dataloader, best_model, criterion, use_cuda, device=device)
 print('\t===>  %s  HAMP model: train acc %.4f val acc %.4f'%(resume_best, best_train, best_val), flush=True)

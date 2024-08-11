@@ -37,14 +37,14 @@ purification:
   purify_method: "diff_purify" # purification method in [diff_purify]
   bsize: 10 # Batch size
   max_iter: 1 # Default maximum number of iterations 
-  path_number: 50
-  purify_step: 40
+  path_number: 30
+  purify_step: 160
   purify_natural: false # Whether to purify natural images, for time complexity
   cond: false # whether to use conditional guide
   guide_mode: SSIM #'LINE' or "EXP" or 'VAR' or "CONSTANT"
   guide_scale: 70000
   guide_scale_base: 0
-  ddim_k: 40
+  ddim_k: 160
 
 classification:
   checkpoint: "origin" # which *.t7 to choose

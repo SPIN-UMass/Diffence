@@ -46,15 +46,19 @@ if __name__ == '__main__':
     parser.add_argument('--config', type=str, default='./configs/default.yml', help='config path')
     parser.add_argument('--diff', type=int, default=0, help='config path')
     parser.add_argument('--world-size', type=int, default=0, help='config path')
+    parser.add_argument('--N','-N', type=int, default=0) # 0 means using config
+    parser.add_argument('--T', '-T', type=int, default=0) # 0 means using config
+    parser.add_argument('--mode', type=int, default=0)  
     args = parser.parse_args()
     # print(dict(args._get_kwargs()))
 
     command = []
     device_num=args.world_size
     for i in range(device_num):
-        command.append(f'python dist_data.py --config {args.config} --rank {i} --world-size {device_num} --diff {args.diff}')
-    generate_workers(command)
+        
+        command.append(f'python dist_data.py --config {args.config} --rank {i} --world-size {device_num} --diff {args.diff} --N {args.N} --T {args.T} --mode {args.mode}')
 
+    generate_workers(command)
 
 
 

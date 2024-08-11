@@ -45,9 +45,6 @@ MODEL_NAME_MAP = {
     'resnet18-100': models.resnet18,
     'densenet121': models.densenet121,
     'ViT': models.ViT_4,
-    'ViT1': models.ViTB_16,
-    'ViT2': models.ViT_Base, #fast
-    'ViT3': models.vit_base, 
 }
 
 

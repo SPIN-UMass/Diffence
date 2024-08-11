@@ -29,6 +29,6 @@ while [ $# -gt 0 ]; do
 done
 
 
-mkdir -p ./training_log/hamp_sub
+mkdir -p ./training_log/$model/hamp_sub
 
-python ./model_training/train-hamp.py --scan_para 1 --entropy_percentile $entropy_percentile --alpha $alpha  &> "./training_log/hamp_sub/${entropy_percentile}_${alpha}"
+python ./model_training/train-hamp.py --scan_para 1 --entropy_percentile $entropy_percentile --alpha $alpha --config ./configs/$model/hamp.yml  &> "./training_log/$model/hamp_sub/${entropy_percentile}_${alpha}"

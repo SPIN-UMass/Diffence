@@ -51,13 +51,19 @@ def dict2namespace(config):
     return namespace
 
 class ModelwDiff(nn.Module): #DM trained from scratch
-    def __init__(self, model, config_path='./configs/default.yml'):
+    def __init__(self, model, args=None):
         super(ModelwDiff, self).__init__()
         self.model = model
-        self.load_diff_config(config_path)
+        self.args=args
+        self.load_diff_config(args.config)
 
     def load_diff_config(self, config_path):
         self.config = self.parse_config(config_path)
+        if not self.args.N == 0:
+            self.config.purification.path_number = self.args.N
+        if not self.args.T == 0:
+            self.config.purification.purify_step = self.args.T
+            self.config.purification.ddim_k = self.args.T
         DATASET_PATH = os.path.join(pathlib.Path(__file__).parent.resolve(),'./diff_models')
         # DATASET_PATH = '/work/yuefengpeng_umass_edu/yf/exp/Hamp/cifar10/diff_defense'
         ckpt = os.path.join(DATASET_PATH, self.config.diff_model.diff_path)
@@ -69,7 +75,7 @@ class ModelwDiff(nn.Module): #DM trained from scratch
             self.diff_model, FLAGS.beta_1, FLAGS.beta_T, FLAGS.T, img_size=FLAGS.img_size,
             mean_type=FLAGS.mean_type, var_type=FLAGS.var_type).to(next(self.model.parameters()).device)
         self.transform_raw_to_clf = raw_to_clf(self.config.structure.dataset)
-        # print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
+        print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
 
     def parse_config(self, config_path=None):
         with open(config_path, 'r') as f:
@@ -100,13 +106,19 @@ class ModelwDiff(nn.Module): #DM trained from scratch
 
 
 class ModelwDiff_direct_mode3(nn.Module): # just output one randomly selected vector
-    def __init__(self, model, config_path='./configs/default.yml'):
+    def __init__(self, model, args=None):
         super(ModelwDiff_direct_mode3, self).__init__()
         self.model = model
-        self.load_diff_config(config_path)
+        self.args=args
+        self.load_diff_config(args.config)
 
     def load_diff_config(self, config_path):
         self.config = self.parse_config(config_path)
+        if not self.args.N == 0:
+            self.config.purification.path_number = self.args.N
+        if not self.args.T == 0:
+            self.config.purification.purify_step = self.args.T
+            self.config.purification.ddim_k = self.args.T
         DATASET_PATH = os.path.join(pathlib.Path(__file__).parent.resolve(),'./diff_models')
         # DATASET_PATH = '/work/yuefengpeng_umass_edu/yf/exp/Hamp/cifar10/diff_defense'
         ckpt = os.path.join(DATASET_PATH, self.config.diff_model.diff_path)
@@ -148,14 +160,19 @@ class ModelwDiff_direct_mode3(nn.Module): # just output one randomly selected ve
         return outputs
     
 class ModelwDiff_v2(nn.Module): #pretrained DM on ImageNet
-    def __init__(self, model, config_path='./configs/default.yml'):
+    def __init__(self, model, args=None):
         super(ModelwDiff_v2, self).__init__()
         self.model = model
-        self.load_diff_config(config_path)
-
+        self.args=args
+        self.load_diff_config(args.config)
 
     def load_diff_config(self, config_path):
         self.config = self.parse_config(config_path)
+        if not self.args.N == 0:
+            self.config.purification.path_number = self.args.N
+        if not self.args.T == 0:
+            self.config.purification.purify_step = 1
+            self.config.net.timestep_respacing= 'ddim' + str(1000//int(self.args.T))
         DATASET_PATH = os.path.join(pathlib.Path(__file__).parent.resolve(),'./diff_models')
         ckpt = os.path.join(DATASET_PATH, self.config.net.model_path)
         self.diff_model, self.diffusion = create_model_and_diffusion(
@@ -169,7 +186,7 @@ class ModelwDiff_v2(nn.Module): #pretrained DM on ImageNet
             self.diff_model.convert_to_fp16()
         self.diff_model.eval()
         self.transform_raw_to_clf = raw_to_clf(self.config.structure.dataset)
-        # print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
+        print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
 
     def parse_config(self, config_path=None):
         with open(config_path, 'r') as f:
@@ -196,11 +213,11 @@ class ModelwDiff_v2(nn.Module): #pretrained DM on ImageNet
         return outputs
     
 class ModelwDiff_get_changed_samples(nn.Module): #only for analysis
-    def __init__(self, model, config_path='./configs/default.yml'):
+    def __init__(self, model, args=None):
         super(ModelwDiff_get_changed_samples, self).__init__()
         self.model = model
-        self.load_diff_config(config_path)
-
+        self.load_diff_config(args.config)
+        
     def load_diff_config(self, config_path):
         self.config = self.parse_config(config_path)
         DATASET_PATH = os.path.join(pathlib.Path(__file__).parent.resolve(),'./diff_models')
@@ -214,7 +231,7 @@ class ModelwDiff_get_changed_samples(nn.Module): #only for analysis
             self.diff_model, FLAGS.beta_1, FLAGS.beta_T, FLAGS.T, img_size=FLAGS.img_size,
             mean_type=FLAGS.mean_type, var_type=FLAGS.var_type).to(next(self.model.parameters()).device)
         self.transform_raw_to_clf = raw_to_clf(self.config.structure.dataset)
-        # print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
+        print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
 
     def parse_config(self, config_path=None):
         with open(config_path, 'r') as f:

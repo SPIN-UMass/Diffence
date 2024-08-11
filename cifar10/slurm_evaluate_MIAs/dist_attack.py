@@ -519,7 +519,7 @@ if(config.attack.getModelAcy):
     all_y = np.concatenate([target_train_performance[1], target_test_performance[1]])
     ece_all = ece_score(all_x, all_y)
     ece = ece_score(target_test_performance[0], target_test_performance[1])
-    # print(f'|ece score {ece:.4f}|')
+    print(f'|ece score {ece:.4f}|')
 
 
 attack_aucs=[]
@@ -741,6 +741,7 @@ if(config.attack.attack == 'nn' or config.attack.attack == 'all' ):
     criterion = nn.CrossEntropyLoss()
     best_at_val_acc=0
     best_at_test_acc=0
+    best_at_test_auc=0
     attack_epochs=200 
     attack_model = InferenceAttack_BB(n_classes)
     attack_model = attack_model.cuda()
@@ -779,16 +780,19 @@ if(config.attack.attack == 'nn' or config.attack.attack == 'all' ):
             print()
             print("\t===>   NN-based attack ", config.attack.path)
 
-        # if( (epoch+1)%5==0 ):
-        #     #print(' Epoch %d | current stats acy: %.4f precision: %.4f recall: %.4f F1_Score: %.4f | best test stats: %.4f precision: %.4f recall: %.4f F1_Score: %.4f '\
-        #     #            %(epoch, at_val_acc, at_val_precision, at_val_recall, at_val_f1,\
-        #     #                 best_at_test_acc, at_best_precision, at_best_recall, at_best_f1) , flush=True)
-        #     print(' Epoch %d '%epoch)
-        #     atk_auc, atk_acc = get_tpr(y_true, y_score, config.attack.fpr_threshold, 'nn-based-%s.npy'%save_tag)
+        if( (epoch+1)%5==0 ):
+            #print(' Epoch %d | current stats acy: %.4f precision: %.4f recall: %.4f F1_Score: %.4f | best test stats: %.4f precision: %.4f recall: %.4f F1_Score: %.4f '\
+            #            %(epoch, at_val_acc, at_val_precision, at_val_recall, at_val_f1,\
+            #                 best_at_test_acc, at_best_precision, at_best_recall, at_best_f1) , flush=True)
+            print(' Epoch %d '%epoch)
+            atk_auc, atk_acc = get_tpr(y_true, y_score, config.attack.fpr_threshold, 'nn-based-%s.npy'%save_tag)
+            if atk_auc>best_at_test_auc:
+                y_true_best, y_score_best = y_true, y_score
+                best_at_test_auc = max(best_at_test_auc, atk_auc)
 
     #np.save( os.path.join(output_save_path, 'nn-based-%s.npy'%save_tag), np.r_[y_true, y_score] )
-    # atk_auc, atk_acc = get_tpr(y_true_best, y_score_best, config.attack.fpr_threshold, 'nn-based-%s.npy'%save_tag)
-    atk_auc, atk_acc = get_tpr(y_true, y_score, config.attack.fpr_threshold, 'nn-based-%s.npy'%save_tag)
+    atk_auc, atk_acc = get_tpr(y_true_best, y_score_best, config.attack.fpr_threshold, 'nn-based-%s.npy'%save_tag)
+    # atk_auc, atk_acc = get_tpr(y_true, y_score, config.attack.fpr_threshold, 'nn-based-%s.npy'%save_tag)
     attack_aucs.append(atk_auc)
     attack_accs.append(atk_acc)
 

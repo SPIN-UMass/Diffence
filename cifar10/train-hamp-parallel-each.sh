@@ -5,6 +5,7 @@
 #SBATCH -t 10:00:00  # Job time limit
 #SBATCH --partition gpu-preempt # Job time limit
 #SBATCH --nodes 1 #
+#SBATCH --nodelist=gpu[013-041]#
 #SBATCH -o ./training_log/sbatch/slurm-%j.out  # %j = job ID
 
 model=''

@@ -16,14 +16,15 @@ from art.utils import compute_success
 
 import sys
 # sys.path.append("..")
-from utils import MyCustomDataset, get_architecture, Input_diversity, MultiEnsemble, get_dataset, get_model, load_data, parse_config
+# from utils import MyCustomDataset, get_architecture, Input_diversity, MultiEnsemble, get_dataset, get_model, load_data, parse_config
 import subprocess,shlex
-from utils import *
+# from utils import *
 import matplotlib.pyplot as plt
 import QEBA
 from QEBA.criteria import TargetClass, Misclassification
 from QEBA.pre_process.attack_setting import load_pgen
 import time
+from utils import raw_to_clf
 
 class Model_with_QueryNum(torch.nn.Module):
     def __init__(self, model):
@@ -68,54 +69,6 @@ def AdversaryOne_Feature(args, shadowmodel, data_loader, cluster, Statistic_Data
     return Statistic_Data
 
 
-def AdversaryOne_evaluation(config, targetmodel, shadowmodel, data_loader, cluster, AUC_Loss, AUC_Entropy, AUC_Maximum):
-    Loss = []
-    Entropy = []
-    Maximum = []
-    with torch.no_grad():
-        for data, target in data_loader:
-            data, target = data.cuda(), target.cuda()
-            Toutput = targetmodel(data)
-            Tlabel = Toutput.max(1)[1]
-
-            Soutput = shadowmodel(data)
-            if Tlabel != target:
-                Loss.append(100)
-            else:
-                Loss.append(F.cross_entropy(Soutput, target).item())
-            prob = F.softmax(Soutput, dim=1) 
-
-            Maximum.append(torch.max(prob).item())
-            entropy = -1 * torch.sum(torch.mul(prob, torch.log(prob)))
-            if str(entropy.item()) == 'nan':
-                Entropy.append(1e-100)
-            else:
-                Entropy.append(entropy.item()) 
-    mem_groundtruth = np.ones(int(len(data_loader.dataset)/2))
-    non_groundtruth = np.zeros(int(len(data_loader.dataset)/2))
-    groundtruth = np.concatenate((mem_groundtruth, non_groundtruth))
-
-    predictions_Loss = np.asarray(Loss)
-    predictions_Entropy = np.asarray(Entropy)
-    predictions_Maximum = np.asarray(Maximum)
-
-    mem_loss = predictions_Loss[:cluster]
-    non_loss = predictions_Loss[cluster:]
-
-    mem_entropy = predictions_Entropy[:cluster]
-    non_entropy = predictions_Entropy[cluster:]
-
-    mem_conf = predictions_Maximum[:cluster]
-    non_conf = predictions_Maximum[cluster:]
-    
-    #YF
-    data_path = f'./saved_data/target{config.target_id}/num_sample{config.num_sample}/transferAttack'
-    os.makedirs(data_path, exist_ok=True)
-    np.savez(os.path.join(data_path,f'transfer.npz'),\
-                mem_loss=mem_loss, non_loss= non_loss, \
-                    mem_entropy = mem_entropy, non_entropy = non_entropy, \
-                        mem_conf=mem_conf , non_conf=non_conf)
-
 
 def AdversaryTwo_HopSkipJump(config, targetmodel, data_loader, cluster, AUC_Dist, Distance, Random_Data=False, maxitr=50, max_eval=10000):
     input_shape = [(3, 32, 32), (3, 32, 32), (3, 64, 64), (3, 128, 128)]
@@ -125,7 +78,7 @@ def AdversaryTwo_HopSkipJump(config, targetmodel, data_loader, cluster, AUC_Dist
     input_shape = tmp_sample.shape[1:]
     ARTclassifier = PyTorchClassifier(
                 model=targetmodel,
-                clip_values=(0, 1),
+                # clip_values=(0, 1),
                 loss=F.cross_entropy,
                 input_shape=input_shape,
                 nb_classes=nb_classes,
@@ -136,6 +89,7 @@ def AdversaryTwo_HopSkipJump(config, targetmodel, data_loader, cluster, AUC_Dist
     mid = int(len(data_loader.dataset)/2)
     member_groundtruth, non_member_groundtruth = [], []
     for idx, (data, target) in enumerate(data_loader): 
+        # print('data',np.array(data), np.max(np.array(data)),np.min(np.array(data)))
         targetmodel.query_num = 0
         data = np.array(data)  
         logit = ARTclassifier.predict(data)
@@ -144,7 +98,14 @@ def AdversaryTwo_HopSkipJump(config, targetmodel, data_loader, cluster, AUC_Dist
             success = 1
             data_adv = data
         else:
-            data_adv = Attack.generate(x=data) 
+            data_adv = Attack.generate(x=data)
+            #YF
+            # print('data_adv',data_adv, np.max(data_adv),np.min(data_adv))
+            # transform_raw_to_clf = raw_to_clf(config.dataset)
+            # data_adv = transform_raw_to_clf(torch.tensor(data_adv))
+            # data_adv = np.array(data_adv)
+            # print('data_adv_after',data_adv, np.max(data_adv),np.min(data_adv))
+            #YF
             data_adv = np.array(data_adv) 
             if Random_Data:
                 success = compute_success(ARTclassifier, data, [pred], data_adv) 

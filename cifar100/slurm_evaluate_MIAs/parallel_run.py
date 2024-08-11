@@ -48,6 +48,9 @@ if __name__ == '__main__':
     parser.add_argument('--world-size', type=int, default=0, help='config path')
     parser.add_argument('--p','-p', type=str, default='gypsum-rtx8000')
     parser.add_argument('--sbatch',action="store_true")
+    parser.add_argument('--N','-N', type=int, default=0) # 0 means using config
+    parser.add_argument('--T', '-T', type=int, default=0) # 0 means using config
+    parser.add_argument('--mode', type=int, default=0)  
     args = parser.parse_args()
     # print(dict(args._get_kwargs()))
 
@@ -56,9 +59,9 @@ if __name__ == '__main__':
     for i in range(device_num):
         
         if args.sbatch==True:
-            command.append(f'sbatch --wait -p {args.p} dist_data.sh --config {args.config} --rank {i} --world-size {device_num} --diff {args.diff}')
+            command.append(f'sbatch --wait -p {args.p} dist_data.sh --config {args.config} --rank {i} --world-size {device_num} --diff {args.diff} --N {args.N} --T {args.T} --mode {args.mode}')
         else:
-            command.append(f'srun -c 1 --gpus 1 --gpus-per-task 1  -p {args.p} --mem=40000 -t 8:00:00 python dist_data.py --config {args.config} --rank {i} --world-size {device_num} --diff {args.diff}')
+            command.append(f'srun -c 1 --gpus 1 --gpus-per-task 1  -p {args.p} --mem=40000 -t 8:00:00 python dist_data.py --config {args.config} --rank {i} --world-size {device_num} --diff {args.diff} --N {args.N} --T {args.T} --mode {args.mode}')
 
     generate_workers(command)
 

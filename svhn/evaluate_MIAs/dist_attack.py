@@ -4,6 +4,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--config', type=str, default='./configs/default.yml')  
 parser.add_argument('--world-size', type=int, required=True)  
 parser.add_argument('--diff', type=int, default=0)  
+parser.add_argument('--mode', type=int, default=0)  
+parser.add_argument('--N', type=int, default=0) 
+parser.add_argument('--T', type=int, default=0) 
 args = parser.parse_args()
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, classification_report, confusion_matrix
 import torch
@@ -47,6 +50,17 @@ def parse_config(config_path=None):
     return new_config
 config = parse_config(args.config)
 
+if args.mode==0:
+    mode = config.attack.mode
+else:
+    mode = args.mode
+
+if not args.N == 0:
+    config.purification.path_number = args.N
+if not args.T == 0:
+    config.purification.purify_step = args.T
+
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 num_sample=config.attack.num_sample
@@ -56,17 +70,14 @@ num_classes = config.trainer.num_class
 
 BATCH_SIZE=128
 if not args.diff == 0:
-    data_path = f'./slurm_evaluate_MIAs/data/{config.attack.target_model}/num_sample{config.attack.num_sample}/{config.attack.save_tag}/diff{args.diff}/iter{config.purification.max_iter}_path{config.purification.path_number}_step{config.purification.purify_step}'
+    data_path = f'./evaluate_MIAs/data/{config.attack.target_model}/num_sample{config.attack.num_sample}/{config.attack.save_tag}/diff{args.diff}/iter{config.purification.max_iter}_path{config.purification.path_number}_step{config.purification.purify_step}'
 else:
-    data_path = f'./slurm_evaluate_MIAs/data/{config.attack.target_model}/num_sample{config.attack.num_sample}/{config.attack.save_tag}/diff{args.diff}'
-
-import time
-start = time.time()
-
+    data_path = f'./evaluate_MIAs/data/{config.attack.target_model}/num_sample{config.attack.num_sample}/{config.attack.save_tag}/diff{args.diff}'
+    
 criterion=nn.CrossEntropyLoss()
 use_cuda = torch.cuda.is_available()
 
-def get_tpr(y_true, y_score, fpr_threshold=0.001, attack='None'):
+def get_tpr(y_true, y_score, fpr_threshold=0.001, attack='None',verbose=True):
     fpr, tpr, thresholds = roc_curve(y_true, y_score)
     accuracy = np.max(1-(fpr+(1-tpr))/2)
     auc_score = auc(fpr, tpr)
@@ -77,7 +88,8 @@ def get_tpr(y_true, y_score, fpr_threshold=0.001, attack='None'):
     fnr = 1 - tpr 
     tnr = 1 - fpr
     highest_tnr = tnr[np.where(fnr<fpr_threshold)[0][0]] 
-    print( '\t\t===> %s: TPR %.2f%% @%.2f%%FPR | TNR %.2f%% @%.2f%%FNR | AUC %.4f| ACC %.4f'%( attack, highest_tpr*100, fpr_threshold*100, highest_tnr*100, fpr_threshold*100, auc_score, accuracy  ) )
+    if verbose==True:
+        print( '\t\t===> %s: TPR %.2f%% @%.2f%%FPR | TNR %.2f%% @%.2f%%FNR | AUC %.4f| ACC %.4f'%( attack, highest_tpr*100, fpr_threshold*100, highest_tnr*100, fpr_threshold*100, auc_score, accuracy  ) )
     return auc_score, accuracy
     # best_pred=[]
     # best_acc=0
@@ -291,7 +303,6 @@ def get_entropy(opredictions,num_classes=10):
 
 def aggregate_predictions(predictions,p_labels, scope, config):
 
-    mode =  config.attack.mode
     # scope = SCOPE
     N,P,C=predictions.shape
     predictions_flat = predictions.reshape(N*P,C)
@@ -354,16 +365,9 @@ if args.diff!=0:
     # print('scope',scope1)
     # print('original KL', kl)
 
-    # print("logit mode:",bins1[np.argmax(n1)], bins2[np.argmax(n2)])
-    plt.xlabel("Logit of the Confidences",fontsize=15)#横坐标名字
-    plt.ylabel("#Samples",fontsize=15)
-    # plt.title(f'dist',fontsize=20)
-    plt.legend(loc = "best",fontsize=15)
-    plt.savefig(f'{data_path}/logit_dist.png',dpi=300,bbox_inches='tight')
-
-    if config.attack.mode ==2:
+    if mode == 2:
         SCOPE=[np.min(mem_logits),np.mean(mem_logits)]
-    elif config.attack.mode ==3:
+    elif mode == 3:
         SCOPE=[np.min(nonmem_logits),np.max(mem_logits)]
 
     if SCOPE == None:
@@ -409,7 +413,6 @@ if args.diff!=0:
     target_train_performance = aggregate_predictions(target_train_performance[0],target_train_performance[1],SCOPE, config), target_train_performance[1], target_train_performance[2]
     target_test_performance = aggregate_predictions(target_test_performance[0],target_test_performance[1],SCOPE, config), target_test_performance[1], target_test_performance[2]
 
-mode = config.attack.mode
 if args.diff!=0:
     memguard_logit_path=os.path.join(data_path, f'logits_for_memguard_{mode}.npz')  
 else:
@@ -419,7 +422,6 @@ np.savez( memguard_logit_path,\
                     shadow_test_performance_logits=shadow_test_performance[0],target_train_performance_logits=target_train_performance[0],\
                     target_test_performance_logits=target_test_performance[0])
             
-    
 #draw plot after defense
 plt.figure(figsize=(8,5), dpi= 100)
 
@@ -434,16 +436,6 @@ bins = np.histogram_bin_edges(nonmem_logits, bins=100)
 n1,bins1,_ = plt.hist(mem_logits, bins=bins, label="Training Samples", alpha=.7)
 n2,bins2,_ = plt.hist(nonmem_logits, bins=bins, label="Test Samples", alpha=.7)
 kl = KL(n1,n2)
-# print('best KL', kl)
-# if args.diff!=0:
-#     print('best scope',SCOPE)
-# plt.xlabel("The Highest Confidence",fontsize=15)#横坐标名字
-# plt.xlabel("Prediction Entropy",fontsize=15)#横坐标名字
-plt.xlabel("Logit of the Confidences",fontsize=15)#横坐标名字
-plt.ylabel("#Samples",fontsize=15)
-# plt.title(f'dist',fontsize=20)
-plt.legend(loc = "best",fontsize=15)
-plt.savefig(f'{data_path}/logit_dist_{args.diff}_{config.attack.mode}.png',dpi=300,bbox_inches='tight')
 
 test_target_train_performance = softmax(test_target_train_performance[0],1),test_target_train_performance[2]
 test_target_test_performance = softmax(test_target_test_performance[0],1),test_target_test_performance[2]
@@ -460,7 +452,7 @@ def get_outputs_labels_memguard(islogits=False):
 
     if args.diff!=0:
         scope = SCOPE
-        file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_{config.attack.mode}')
+        file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_{mode}')
     else:
         file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_diff0')
     
@@ -504,10 +496,10 @@ if(config.attack.getModelAcy):
     check_train_acc = accuracy(torch.from_numpy(test_target_train_performance[0]),torch.from_numpy(test_target_train_performance[1]))[0]
     print('{} | train acc {:.4f} | test acc {:.4f}'.format(config.attack.path, check_train_acc,check_test_acc), flush=True)
 
-    all_x = np.concatenate([target_train_performance[0], target_test_performance[0]])
-    all_y = np.concatenate([target_train_performance[1], target_test_performance[1]])
-    ece_all = ece_score(all_x, all_y)
-    ece = ece_score(target_test_performance[0], target_test_performance[1])
+    # all_x = np.concatenate([target_train_performance[0], target_test_performance[0]])
+    # all_y = np.concatenate([target_train_performance[1], target_test_performance[1]])
+    # ece_all = ece_score(all_x, all_y)
+    # ece = ece_score(target_test_performance[0], target_test_performance[1])
     # print(f'|ece score {ece:.4f}|')
 
 
@@ -657,7 +649,6 @@ if(config.attack.attack == 'nn' or config.attack.attack == 'all' ):
             member_output = inference_model(pred_outputs, infer_input_one_hot, loss_)
             # print(member_output) 
 
-
             is_member_labels = torch.from_numpy(np.reshape(np.concatenate((np.zeros(v_tr_target.size(0)),np.ones(v_te_target.size(0)))),[-1,1])).cuda()
             
             v_is_member_labels = torch.autograd.Variable(is_member_labels).type(torch.cuda.FloatTensor)
@@ -730,6 +721,7 @@ if(config.attack.attack == 'nn' or config.attack.attack == 'all' ):
     criterion = nn.CrossEntropyLoss()
     best_at_val_acc=0
     best_at_test_acc=0
+    best_at_test_auc=0
     attack_epochs=200 
     attack_model = InferenceAttack_BB(n_classes)
     attack_model = attack_model.cuda()
@@ -768,16 +760,15 @@ if(config.attack.attack == 'nn' or config.attack.attack == 'all' ):
             print()
             print("\t===>   NN-based attack ", config.attack.path)
 
-        # if( (epoch+1)%5==0 ):
-        #     #print(' Epoch %d | current stats acy: %.4f precision: %.4f recall: %.4f F1_Score: %.4f | best test stats: %.4f precision: %.4f recall: %.4f F1_Score: %.4f '\
-        #     #            %(epoch, at_val_acc, at_val_precision, at_val_recall, at_val_f1,\
-        #     #                 best_at_test_acc, at_best_precision, at_best_recall, at_best_f1) , flush=True)
-        #     print(' Epoch %d '%epoch)
-        #     atk_auc, atk_acc = get_tpr(y_true, y_score, config.attack.fpr_threshold, 'nn-based-%s.npy'%save_tag)
+        if( (epoch+1)%5==0 ):
+            atk_auc, atk_acc = get_tpr(y_true, y_score, config.attack.fpr_threshold, 'nn-based-%s.npy'%save_tag, False)
+            if atk_auc>best_at_test_auc:
+                y_true_best, y_score_best = y_true, y_score
+                best_at_test_auc = max(best_at_test_auc, atk_auc)
 
     #np.save( os.path.join(output_save_path, 'nn-based-%s.npy'%save_tag), np.r_[y_true, y_score] )
-    # atk_auc, atk_acc = get_tpr(y_true_best, y_score_best, config.attack.fpr_threshold, 'nn-based-%s.npy'%save_tag)
-    atk_auc, atk_acc = get_tpr(y_true, y_score, config.attack.fpr_threshold, 'nn-based-%s.npy'%save_tag)
+    atk_auc, atk_acc = get_tpr(y_true_best, y_score_best, config.attack.fpr_threshold, 'nn-based-%s.npy'%save_tag)
+    # atk_auc, atk_acc = get_tpr(y_true, y_score, config.attack.fpr_threshold, 'nn-based-%s.npy'%save_tag)
     attack_aucs.append(atk_auc)
     attack_accs.append(atk_acc)
 
@@ -848,9 +839,3 @@ if(config.attack.attack == 'entropy' or config.attack.attack == 'all'):
                                 recall_score(eval_label,pred_label), f1_score(eval_label,pred_label)))
 
     '''
-
-if(config.attack.getModelAcy):
-    print('{} | train acc {:.4f} | test acc {:.4f}'.format(config.attack.path, check_train_acc,check_test_acc), flush=True)
-end = time.time()
-print('running time:', end-start)
-     

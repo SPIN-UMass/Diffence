@@ -1,7 +1,7 @@
-from .architectures import *
-from .my_loader import MyCustomDataset
-from .ensemble_model import Input_diversity, MultiEnsemble
-from .util import *
+# from .architectures import *
+# from .my_loader import MyCustomDataset
+# from .ensemble_model import Input_diversity, MultiEnsemble
+# from .util import *
 from .score_based_MIA_util import *
 
 import numpy as np
@@ -15,115 +15,8 @@ import argparse
 from opacus.dp_model_inspector import DPModelInspector
 from opacus.utils import module_modification
 from opacus import PrivacyEngine
+from .transforms import *
 
-
-MODEL_NAME_DICT = {
-    0: models.resnet18,
-    1: models.densenet121,
-    2: models.inceptionv3,
-    3: models.vgg13_bn,
-    4: models.resnext50,
-    5: models.shufflenetv2,
-    6: models.preactresnet18,
-    222:models.resnet18,
-}
-
-def get_model(model_id, indice=0, model_num=0,num_classes=10, load=True, config=None):
-    if model_id not in MODEL_NAME_DICT:
-        raise ValueError("Model {} is invalid. Pick from {}.".format(
-            model_id, sorted(MODEL_NAME_DICT.keys())))
-    model_class = MODEL_NAME_DICT[model_id]
-    model = model_class()
-    # DATASET_PATH = os.path.join(pathlib.Path(__file__).parent.resolve(),f'trained_models/{model_id}_{indice}_{model_num}.pt')
-    if load==True:
-        # state_file = f'./trained_models/{model_id}_{indice}_{model_num}.pt'
-        config_path=config
-        all_dir_names = get_folder_names(config_path)
-        config_dir_name = all_dir_names[2] #trainer
-        config_second_dir_name = all_dir_names[3] #defense
-        config_third_dir_name = all_dir_names[4] #attack config
-        if indice == 0: #get the target model
-            state_file = os.path.join(pathlib.Path(__file__).parent.parent.resolve(),f'trained_models/{config_dir_name}/{config_second_dir_name}/{model_id}_{indice}_{model_num}.pt')
-            config = parse_config(config_path)
-            if config.defense.method=='dpsgd':
-                model = module_modification.convert_batchnorm_modules(model).cuda()
-            elif config.defense.method == 'dropout':
-                num_ftrs = model.fc.in_features
-                model.fc = nn.Sequential(
-                    nn.Dropout(config.defense.dropout_ratio), 
-                    nn.Linear(num_ftrs, model.fc.out_features)
-                )
-                model.cuda()
-        else:
-            state_file = os.path.join(pathlib.Path(__file__).parent.parent.resolve(),f'trained_models/{config_dir_name}/{model_id}_{indice}_{model_num}.pt')
-        if state_file is not None:
-            model.load_state_dict(torch.load(state_file))
-    return model
-
-def get_dataset(idx):
-    transform_train = transforms.Compose([  
-        transforms.ToTensor(),
-        # transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-    ])
-
-    transform_test = transforms.Compose([
-        transforms.ToTensor(),
-        # transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-    ])
-    trainset = torchvision.datasets.CIFAR10(root='../datasets/cifar10', train=True, download=True, transform=transform_train)
-    trainset=torch.utils.data.Subset(trainset, idx)
-    testset = torchvision.datasets.CIFAR10(root='../datasets/cifar10', train=False, download=True, transform=transform_test)
-    testset=torch.utils.data.Subset(testset, idx)
-
-    return trainset,testset
-
-def get_shadow_dataset(shadow_idx):
-    transform_train = transforms.Compose([  
-        transforms.ToTensor(),
-        # transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-    ])
-
-    transform_test = transforms.Compose([
-        transforms.ToTensor(),
-        # transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-    ])
-    trainset = torchvision.datasets.CIFAR10(root='../datasets/cifar10', train=True, download=True, transform=transform_train)
-    shadow_memset=torch.utils.data.Subset(trainset, np.arange(len(trainset)//2,len(trainset))[shadow_idx])
-    shadow_nonmemset=torch.utils.data.Subset(trainset, np.arange(len(trainset)//2)[shadow_idx])
-
-    return shadow_memset, shadow_nonmemset
-
-def parser_opt_scheduler(model, config):
-    # idea: given model and args, return the optimizer and scheduler you choose to use
-
-    if config.trainer.optimizer == "sgd":
-        optimizer = torch.optim.SGD(filter(lambda p: p.requires_grad, model.parameters()),
-                                    lr=config.trainer.lr,
-                                    momentum=config.trainer.momentum,  # 0.9
-                                    weight_decay=config.trainer.weight_decay,  # 5e-4
-                                    )
-    else:
-        optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()),
-                                     lr=config.trainer.lr,
-                                     betas=config.trainer.betas,
-                                     weight_decay=config.trainer.weight_decay,
-                                     amsgrad=True)
-
-    if config.trainer.lr_scheduler == 'CosineAnnealingLR':
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=config.trainer.T_max)
-    elif config.trainer.lr_scheduler == 'MultiStepLR':
-        scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, config.trainer.milestones ,config.trainer.steplr_gamma)
-    elif config.trainer.lr_scheduler == 'ReduceLROnPlateau':
-        scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-            optimizer,
-            **({
-                'factor':config.trainer.ReduceLROnPlateau_factor
-               } if 'ReduceLROnPlateau_factor' in config.trainer.__dict__ else {})
-        )
-    else:
-        scheduler = None
-
-    return optimizer, scheduler
 
 def get_folder_names(path):
     folders = []

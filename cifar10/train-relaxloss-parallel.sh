@@ -2,7 +2,7 @@
 
 # Declare arrays of alpha and entropy_percentile values
 # alphas=(0.2)
-alphas=(0.0001 0.0005 0.001 0.005 0.01 0.05 0.07 0.1 0.2 0.3 0.4 0.5 1.0)
+alphas=(0.00001 0.00005 0.0001 0.0005 0.001 0.005 0.01 0.05 0.07 0.1 0.2 0.3 0.4 0.5 1.0)
 model=''
 while [ $# -gt 0 ]; do
   case "$1" in

@@ -5,6 +5,9 @@ parser.add_argument('--config', type=str)
 parser.add_argument('--world-size', type=int, required=True)  
 parser.add_argument('--rank', type=int)   
 parser.add_argument('--diff', type=int, default='0')
+parser.add_argument('--N', type=int, default=0) 
+parser.add_argument('--T', type=int, default=0) 
+parser.add_argument('--mode', type=int, default=0)  
 args = parser.parse_args()
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, classification_report, confusion_matrix
 import torch
@@ -48,6 +51,14 @@ def parse_config(config_path=None):
         new_config = dict2namespace(config)
     return new_config
 config = parse_config(args.config)
+
+if not args.N == 0:
+    config.purification.path_number = args.N
+if not args.T == 0:
+    config.purification.purify_step = args.T
+
+if not args.mode == 0:
+    config.attack.mode=args.mode
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -105,7 +116,16 @@ mia_train_members_label_tensor=private_label_tensor[:int(tr_frac*private_data_le
 mia_test_members_data_tensor=private_data_tensor[int(tr_frac*private_data_len):int((tr_frac+te_frac)*private_data_len)]
 mia_test_members_label_tensor=private_label_tensor[int(tr_frac*private_data_len):int((tr_frac+te_frac)*private_data_len)]
 
+# # get non-members from ref data
+# # get non-member data and label tensors required to train 
+# mia_train_nonmembers_data_tensor = ref_data_tensor[:int(tr_frac*private_data_len)]
+# mia_train_nonmembers_label_tensor = ref_label_tensor[:int(tr_frac*private_data_len)]
+# # get member data and label tensors required to test MIA model
+# mia_test_nonmembers_data_tensor = ref_data_tensor[int((tr_frac)*private_data_len):int((tr_frac+te_frac)*private_data_len)]
+# mia_test_nonmembers_label_tensor =ref_label_tensor[int((tr_frac)*private_data_len):int((tr_frac+te_frac)*private_data_len)]
 
+# get non-members from test data
+# get non-member data and label tensors required to train 
 test_data_len=len(test_data_tensor)
 mia_train_nonmembers_data_tensor = test_data_tensor[:int(tr_frac*test_data_len)]
 mia_train_nonmembers_label_tensor = test_label_tensor[:int(tr_frac*test_data_len)]
@@ -122,9 +142,9 @@ num_sample=config.attack.num_sample
 rank = args.rank
 world_size = args.world_size
 if not args.diff == 0:
-    data_path = f'./slurm_evaluate_MIAs/data/{config.attack.target_model}/num_sample{config.attack.num_sample}/{config.attack.save_tag}/diff{args.diff}/iter{config.purification.max_iter}_path{config.purification.path_number}_step{config.purification.purify_step}'
+    data_path = f'./evaluate_MIAs/data/{config.attack.target_model}/num_sample{config.attack.num_sample}/{config.attack.save_tag}/diff{args.diff}/iter{config.purification.max_iter}_path{config.purification.path_number}_step{config.purification.purify_step}'
 else:
-    data_path = f'./slurm_evaluate_MIAs/data/{config.attack.target_model}/num_sample{config.attack.num_sample}/{config.attack.save_tag}/diff{args.diff}'
+    data_path = f'./evaluate_MIAs/data/{config.attack.target_model}/num_sample{config.attack.num_sample}/{config.attack.save_tag}/diff{args.diff}'
 os.makedirs(data_path, exist_ok=True)
 
 def get_data_for_rank(all_data):
@@ -147,9 +167,6 @@ private_label_tensor,mia_train_members_label_tensor,mia_test_members_label_tenso
                                                                       get_data_for_rank(mia_test_nonmembers_label_tensor),\
                                                                 get_data_for_rank(ref_label_tensor),get_data_for_rank(te_label_tensor)
 
-import time
-start = time.time()
-
 best_model=create_model(model_name = config.attack.target_model, num_classes=num_classes)
 best_model=best_model.cuda()
 if config.attack.save_tag.startswith('dpsgd'):
@@ -165,9 +182,9 @@ checkpoint = torch.load(resume_best, map_location='cuda')
 best_model.load_state_dict(checkpoint['state_dict'])
 #YF
 if args.diff == 1:
-    best_model =  ModelwDiff(best_model, config_path=args.config)
+    best_model =  ModelwDiff(best_model,  args)
 elif args.diff ==2: #pretrained model
-    best_model =  ModelwDiff_v2(best_model, config_path=args.config)
+    best_model =  ModelwDiff_v2(best_model, args)
 
 BATCH_SIZE=100
 if hasattr(best_model, 'config'):
@@ -196,7 +213,7 @@ def _model_predictions(model, x, y, batch_size=256):
 
     first = True
     if args.diff==0:
-        for ind in tq(range(len_t)):
+        for ind in range(len_t):
             outputs = model.forward(x[ind*batch_size:(ind+1)*batch_size].cuda())
             outputs = outputs.data.cpu().numpy()
             if(first):
@@ -224,11 +241,8 @@ if(config.attack.prepMemGuard):
     from scipy.special import softmax
 
     if args.diff!=0:
-        if not config.attack.mode==3:
-            scope = config.attack.scope
-            memguard_logit_path=os.path.join(data_path, f'logits_for_memguard_{config.attack.mode}.npz')
-        else:
-            memguard_logit_path=os.path.join(data_path, f'logits_for_memguard_{config.attack.mode}_{config.attack.metric}_{config.attack.strategy}.npz')
+        scope = config.attack.scope
+        memguard_logit_path=os.path.join(data_path, f'logits_for_memguard_{config.attack.mode}.npz')
     else:
         memguard_logit_path=os.path.join(data_path, f'logits_for_memguard_diff0.npz')
     
@@ -329,7 +343,7 @@ if(config.attack.prepMemGuard):
         return model
 
     from tensorflow.keras.models import load_model
-    defense_model_path = f'./slurm_evaluate_MIAs/memguard/'
+    defense_model_path = f'./evaluate_MIAs/memguard/{config.attack.target_model}'
     # defense_model_path = os.path.join(defense_model_path, f'memguard_diff{args.diff}_{config.attack.save_tag}')
     defense_model_path = os.path.join(defense_model_path, f'memguard_diff0_{config.attack.save_tag}')
     defense_model = load_model( defense_model_path )
@@ -445,11 +459,8 @@ if(config.attack.prepMemGuard):
     print('\n====> evaluate accuracy on model:', scores_evaluate[1])
 
     if args.diff!=0:
-        if config.attack.mode==1:
-            scope = config.attack.scope
-            file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_{config.attack.mode}')
-        else:
-            file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_{config.attack.mode}_{config.attack.metric}_{config.attack.strategy}')
+        scope = config.attack.scope
+        file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_{config.attack.mode}')
     else:
         file_path=os.path.join(data_path, 'memguard_defense_results',f'memguard_diff0')
     if not os.path.exists(file_path):
@@ -493,4 +504,5 @@ np.savez(os.path.join(data_path, f'diff_{world_size}_{rank}.npz'),\
                             target_test_performance_logits=target_test_performance[0],target_test_performance_plabels=target_test_performance[1], target_test_performance_glabels=target_test_performance[2],\
                                 test_target_train_performance_logits=test_target_train_performance[0],test_target_train_performance_plabels=test_target_train_performance[1], test_target_train_performance_glabels=test_target_train_performance[2],\
                                 test_target_test_performance_logits=test_target_test_performance[0],test_target_test_performance_plabels=test_target_test_performance[1], test_target_test_performance_glabels=test_target_test_performance[2])
+
 

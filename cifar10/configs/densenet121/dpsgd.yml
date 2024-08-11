@@ -1,6 +1,6 @@
 trainer:
   dataset: "cifar10" 
-  classifier: "densenet121121" # Classifier structure
+  classifier: "densenet121" # Classifier structure
   save_tag: dpsgd
   classifier_epochs: 100
   num_class: 10
@@ -31,7 +31,7 @@ structure:
   att_log: "cifar10" # Attacker model path
   diff_name: "ema_cifar10" # Diff name
   clf_log: "cifar10" # Classifier model path
-  classifier: "Wide_densenet121121" # Classifier structure
+  classifier: "Wide_densenet121" # Classifier structure
   dataset: "CIFAR10" # Dataset, in [MNIST, FashionMNIST, CIFAR10, CIFAR10-C, CIFAR100]
   bsize: 50 # Batch size
   start_epoch: 0
@@ -90,10 +90,10 @@ net:
   use_scale_shift_norm: true
 
 attack:
-  target_model: densenet121121
+  target_model: densenet121
   num_sample: 1000
   train_size: 25000
-  path: ./final-all-models/densenet121121/dpsgd.pth.tar 
+  path: ./final-all-models/densenet121/dpsgd.pth.tar 
   getModelAcy: true
   isModifyOutput: false
   attack: all

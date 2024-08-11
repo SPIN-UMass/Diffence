@@ -3,8 +3,18 @@
 # Declare arrays of alpha and entropy_percentile values
 alphas=(0.001 0.005 0.01 0.0005)
 entropy_percentiles=(0.5 0.6 0.7 0.8 0.9 0.95 0.99)
-model='resnet'
-
+model=''
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --model)
+      model="$2"
+      shift 2
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
 # Loop over each alpha
 for alpha in "${alphas[@]}"; do
   # Loop over each entropy_percentile

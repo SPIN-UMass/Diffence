@@ -1,6 +1,7 @@
 cifar10/data/
-cifar10/diff_defense/
 cifar10/slurm_evaluate_MIAs/data/
+cifar10/diff_defense/diff_ckpt/
+cifar10/diff_defense/diff_models/
 cifar10/final-all-models/
 cifar10/label-only-attacks/trained_models/
 cifar100/data/
@@ -8,6 +9,7 @@ cifar100/final-all-models/
 cifar100/label-only-attacks/
 cifar100/slurm_evaluate_MIAs/data/
 cifar100/slurm_evaluate_MIAs/results/
+cifar100/diff_defense/diff_ckpt/
 cifar100/diff_defense/diff_models/
 cifar100/slurm_evaluate_MIAs/data/
 cifar100/training_log/
@@ -53,3 +55,30 @@ test_all.sh
 .gitignore
 cifar10/training_log/
 celeba/
+slurm_test_all.sh
+colormaps/
+results_Old/
+scatter_plots/
+utkface/
+best_settings/
+results_comprehensive_but_some_err/
+results_sweep
+cifar10/final-all-models copy
+stats_scripts
+svhn/lira*
+svhn/shadow*
+svhn/training_log
+svhn/log
+svhn/note
+cifar10/label-only*
+cifar10/configs/densent121/
+cifar10/configs/vgg16/
+cifar10/configs/ViT/
+cifar10/evaluate_MIAs/data/
+svhn/slurm_evaluate_MIAs/memguard/
+cifar10/label-only-attacks/
+cifar10/slurm_evaluate_MIAs/
+cifar100/evaluate_MIAs/data/
+cifar100/slurm_evaluate_MIAs/
+svhn/evaluate_MIAs/data/
+svhn/slurm_evaluate_MIAs/

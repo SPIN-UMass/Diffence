@@ -1,10 +1,10 @@
 train:
     1. set memguard.yml: 
-        num_sample: 25000
+        num_sample: 12500
         isMemGuard: false
         prepMemGuard: false 
-    2. python parallel_run.py --config ./configs/resnet/memguard.yml  --world-size 10 -p gypsum-2080ti --diff 0 # generate training data for memguard
-    3. srun -c 1 -G 1 -p gypsum-2080ti python ./memguard/train_memguard_defense.py --world-size 10 --config ./configs/resnet/memguard.yml # train defender's attack model
+    2. python parallel_run.py --config ./configs/resnet/memguard.yml  --world-size 10 -p gypsum-2080ti --diff $diff # generate training data for memguard
+    3. srun -c 1 -G 1 -p gypsum-2080ti python ./memguard/train_memguard_defense.py --world-size 10 --config ./configs/resnet/memguard.yml --diff #diff --mode $mode # train defender's attack model
 
 test:
     1. set memguard.yml
@@ -13,7 +13,7 @@ test:
         prepMemGuard: true
     2. make sure undefended w/ w/o Diffence is tested,if not, run: 
         srun -c 1 -G 1 -p gypsum-2080ti python dist_attack.py --config ./configs/undefended.yml --world-size 10 --diff 0
-        srun -c 1 -G 1 -p gypsum-2080ti python dist_attack.py --config ./configs/undefended.yml --world-size 10 --diff 1
+        srun -c 1 -G 1 -p gypsum-2080ti python dist_attack.py --config ./configs/undefended.yml --world-size 10 --diff 1 --mode $mode
     3. python parallel_run.py --config ./configs/memguard.yml  --world-size 10 -p gypsum-2080ti --diff 0 # generate training data for memguard
-        python parallel_run.py --config ./configs/memguard.yml  --world-size 10 -p gypsum-2080ti --diff 0 # generate training data for memguard
+        python parallel_run.py --config ./configs/memguard.yml  --world-size 10 -p gypsum-2080ti --diff 1 --mode $mode # generate training data for memguard
     4. 

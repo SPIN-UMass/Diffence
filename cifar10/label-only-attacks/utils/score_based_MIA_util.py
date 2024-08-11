@@ -253,13 +253,19 @@ class black_box_benchmarks(object):
             recall_scores.append(recall_score(y_true, predicted_result))
             f1_scores.append(f1_score(y_true,predicted_result))
 
-
         accuracies = np.array(accuracy_scores)
         precisions = np.array(precision_scores)
         recalls = np.array(recall_scores)
         f1_scores = np.array(f1_scores)
         
         max_accuracy = accuracies.max()
+        print("************")
+        print(accuracies)
+        print(1-(fpr+(1-tpr))/2)
+        print("******************")
+
+
+        max_accuracy = np.max(1-(fpr+(1-tpr))/2)
         max_precision = precisions.max()
         max_accuracy_threshold = thresholds[accuracies.argmax()]
         max_precision_threshold = thresholds[precisions.argmax()]
