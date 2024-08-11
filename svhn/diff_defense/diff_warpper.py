@@ -75,7 +75,7 @@ class ModelwDiff(nn.Module): #DM trained from scratch
             self.diff_model, FLAGS.beta_1, FLAGS.beta_T, FLAGS.T, img_size=FLAGS.img_size,
             mean_type=FLAGS.mean_type, var_type=FLAGS.var_type).to(next(self.model.parameters()).device)
         self.transform_raw_to_clf = raw_to_clf(self.config.structure.dataset)
-        print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
+        # print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
 
     def parse_config(self, config_path=None):
         with open(config_path, 'r') as f:
@@ -186,7 +186,7 @@ class ModelwDiff_v2(nn.Module): #pretrained DM on ImageNet
             self.diff_model.convert_to_fp16()
         self.diff_model.eval()
         self.transform_raw_to_clf = raw_to_clf(self.config.structure.dataset)
-        print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
+        # print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
 
     def parse_config(self, config_path=None):
         with open(config_path, 'r') as f:
@@ -216,6 +216,7 @@ class ModelwDiff_get_changed_samples(nn.Module): #only for analysis
     def __init__(self, model, args=None):
         super(ModelwDiff_get_changed_samples, self).__init__()
         self.model = model
+        self.args=args
         self.load_diff_config(args.config)
         
     def load_diff_config(self, config_path):
@@ -231,7 +232,7 @@ class ModelwDiff_get_changed_samples(nn.Module): #only for analysis
             self.diff_model, FLAGS.beta_1, FLAGS.beta_T, FLAGS.T, img_size=FLAGS.img_size,
             mean_type=FLAGS.mean_type, var_type=FLAGS.var_type).to(next(self.model.parameters()).device)
         self.transform_raw_to_clf = raw_to_clf(self.config.structure.dataset)
-        print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
+        # print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
 
     def parse_config(self, config_path=None):
         with open(config_path, 'r') as f:
@@ -255,4 +256,54 @@ class ModelwDiff_get_changed_samples(nn.Module): #only for analysis
                     )
             x_nat_pur_list_list.append(x_nat_pur_list)
 
+        return x_nat_pur_list_list
+    
+
+class ModelwDiff_get_changed_samples_v2(nn.Module):
+    def __init__(self, model, args=None):
+        super(ModelwDiff_get_changed_samples_v2, self).__init__()
+        self.model = model
+        self.args=args
+        self.load_diff_config(args.config)
+
+
+    def load_diff_config(self, config_path):
+        self.config = self.parse_config(config_path)
+        DATASET_PATH = os.path.join(pathlib.Path(__file__).parent.resolve(),'./diff_models')
+        ckpt = os.path.join(DATASET_PATH, self.config.net.model_path)
+        self.diff_model, self.diffusion = create_model_and_diffusion(
+            **args_to_dict(self.config.net, model_and_diffusion_defaults().keys())
+        )
+        self.diff_model.load_state_dict(
+            torch.load(ckpt, map_location="cpu")
+        )
+        self.diff_model.to(next(self.model.parameters()).device)
+        if self.config.net.use_fp16:
+            self.diff_model.convert_to_fp16()
+        self.diff_model.eval()
+        self.transform_raw_to_clf = raw_to_clf(self.config.structure.dataset)
+        # print('iter:',self.config.purification.max_iter,'steps:',self.config.purification.purify_step,'path:',self.config.purification.path_number)
+
+    def parse_config(self, config_path=None):
+        with open(config_path, 'r') as f:
+            config = yaml.load(f, Loader=yaml.Loader)
+            new_config = dict2namespace(config)
+        return new_config
+
+    def forward(self, x, original_labels=None):
+        x_nat_pur_list_list = []
+        transform_clf_to_raw = clf_to_raw(self.config.structure.dataset)
+        output_origin = self.model(x).detach().cpu()
+        ground_label = torch.argmax(output_origin,1)
+        x = transform_clf_to_raw(x)
+        for j in range(self.config.purification.path_number):
+            x_nat_pur_list = purify_imagenet(
+                    x, self.diffusion, self.diff_model, 
+                    self.config.purification.max_iter, 
+                    mode="purification", 
+                    config=self.config
+                    )
+            x_nat_pur_list_list.append(x_nat_pur_list)
+        # nat_list_list_dict = gen_ll(x_nat_pur_list_list, self.model, self.transform_raw_to_clf, self.config)
+        # outputs= output_final_step_tensor(nat_list_list_dict)
         return x_nat_pur_list_list
