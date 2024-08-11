@@ -1,157 +1,0 @@
-srun: job 22907588 queued and waiting for resources
-srun: job 22907588 has been allocated resources
-RuntimeError: module compiled against API version 0xe but this version of numpy is 0xd
-2024-05-20 02:36:35.075703: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
-Files already downloaded and verified
-Files already downloaded and verified
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:25<00:00, 85.43s/it]HopSkipJump: 100%|██████████| 1/1 [01:25<00:00, 85.43s/it]
-6244
--------------Training DataSize: 10 current img index:0---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.36s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.36s/it]
-6240
--------------Training DataSize: 10 current img index:1---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.31s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.31s/it]
-6240
--------------Training DataSize: 10 current img index:2---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.44s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.44s/it]
-6240
--------------Training DataSize: 10 current img index:3---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.42s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.42s/it]
-6240
--------------Training DataSize: 10 current img index:4---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.43s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.43s/it]
-6240
--------------Training DataSize: 10 current img index:5---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.41s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.41s/it]
-6240
--------------Training DataSize: 10 current img index:6---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.48s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.48s/it]
-6240
--------------Training DataSize: 10 current img index:7---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.34s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.34s/it]
-6240
--------------Training DataSize: 10 current img index:8---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.38s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.38s/it]
-6240
--------------Training DataSize: 10 current img index:9---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.30s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.30s/it]
-6240
--------------Training DataSize: 10 current img index:10---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.39s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.39s/it]
-6240
--------------Training DataSize: 10 current img index:11---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.50s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.50s/it]
-6240
--------------Training DataSize: 10 current img index:12---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.43s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.43s/it]
-6240
--------------Training DataSize: 10 current img index:13---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.64s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.64s/it]
-6260
--------------Training DataSize: 10 current img index:14---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.43s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.43s/it]
-6240
--------------Training DataSize: 10 current img index:15---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.38s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.38s/it]
-6240
--------------Training DataSize: 10 current img index:16---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.48s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.48s/it]
-6256
--------------Training DataSize: 10 current img index:17---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.21s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.21s/it]
-6240
--------------Training DataSize: 10 current img index:18---------------
-6240
--------------Training DataSize: 10 current img index:19---------------
-inference time for each sample (HopSkipJump): 84.64142999649047
-Files already downloaded and verified
-Files already downloaded and verified
-queries: 6632
--------------Training DataSize: 10 current img index:0---------------
-queries: 6627
--------------Training DataSize: 10 current img index:1---------------
-queries: 6627
--------------Training DataSize: 10 current img index:2---------------
-queries: 6627
--------------Training DataSize: 10 current img index:3---------------
-queries: 6627
--------------Training DataSize: 10 current img index:4---------------
-queries: 6627
--------------Training DataSize: 10 current img index:5---------------
-queries: 6627
--------------Training DataSize: 10 current img index:6---------------
-queries: 6627
--------------Training DataSize: 10 current img index:7---------------
-queries: 6627
--------------Training DataSize: 10 current img index:8---------------
-queries: 6627
--------------Training DataSize: 10 current img index:9---------------
-queries: 6627
--------------Training DataSize: 10 current img index:10---------------
-queries: 6627
--------------Training DataSize: 10 current img index:11---------------
-queries: 6627
--------------Training DataSize: 10 current img index:12---------------
-queries: 6627
--------------Training DataSize: 10 current img index:13---------------
-queries: 6660
--------------Training DataSize: 10 current img index:14---------------
-queries: 6634
--------------Training DataSize: 10 current img index:15---------------
-queries: 6627
--------------Training DataSize: 10 current img index:16---------------
-queries: 6633
--------------Training DataSize: 10 current img index:17---------------
-queries: 6627
--------------Training DataSize: 10 current img index:18---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.36s/it]HopSkipJump: 100%|██████████| 1/1 [01:24<00:00, 84.36s/it]
-/work/pi_ahoumansadr_umass_edu/yuefeng/exp/OneShotMIA/cifar10/other-label-only-attacks/QEBA/models/pytorch.py:64: UserWarning: The PyTorch model is in training mode and therefore might not be deterministic. Call the eval() method to set it in evaluation mode if this is not intended.
-  warnings.warn(
-/work/pi_ahoumansadr_umass_edu/yuefeng/exp/OneShotMIA/cifar10/other-label-only-attacks/QEBA/models/pytorch.py:64: UserWarning: The PyTorch model is in training mode and therefore might not be deterministic. Call the eval() method to set it in evaluation mode if this is not intended.
-  warnings.warn(
-queries: 6627
--------------Training DataSize: 10 current img index:19---------------
-inference time for each sample (QEBA): 46.92880671024322
-Files already downloaded and verified
-Files already downloaded and verified
-queries: 772
--------------Training DataSize: 10 current img index:0---------------
-queries: 777
--------------Training DataSize: 10 current img index:1---------------
-queries: 707
--------------Training DataSize: 10 current img index:2---------------
-queries: 726
--------------Training DataSize: 10 current img index:3---------------
-queries: 725
--------------Training DataSize: 10 current img index:4---------------
-queries: 724
--------------Training DataSize: 10 current img index:5---------------
-queries: 723
--------------Training DataSize: 10 current img index:6---------------
-queries: 739
--------------Training DataSize: 10 current img index:7---------------
-queries: 741
--------------Training DataSize: 10 current img index:8---------------
-queries: 703
--------------Training DataSize: 10 current img index:9---------------
-queries: 721
--------------Training DataSize: 10 current img index:10---------------
-queries: 757
--------------Training DataSize: 10 current img index:11---------------
-queries: 741
--------------Training DataSize: 10 current img index:12---------------
-queries: 680
--------------Training DataSize: 10 current img index:13---------------
-queries: 786
--------------Training DataSize: 10 current img index:14---------------
-queries: 753
--------------Training DataSize: 10 current img index:15---------------
-queries: 724
--------------Training DataSize: 10 current img index:16---------------
-queries: 617
--------------Training DataSize: 10 current img index:17---------------
-queries: 728
--------------Training DataSize: 10 current img index:18---------------
-queries: 699
--------------Training DataSize: 10 current img index:19---------------
-inference time for each sample (GaussianNoise): 4.866539990901947

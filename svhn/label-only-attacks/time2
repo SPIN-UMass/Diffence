@@ -1,846 +1,0 @@
-RuntimeError: module compiled against API version 0xe but this version of numpy is 0xd
-2024-05-09 21:08:58.008751: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
-srun: job 22703931 queued and waiting for resources
-srun: job 22703931 has been allocated resources
-RuntimeError: module compiled against API version 0xe but this version of numpy is 0xd
-2024-05-09 21:09:18.566029: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
-Files already downloaded and verified
-Files already downloaded and verified
-======================AdversaryOne AUC of Loss, Entropy, Maximum respectively cluster:100 ===================
-inference time for each sample (transfer attack): 0.05874065399169922
-srun: job 22703936 queued and waiting for resources
-srun: job 22703936 has been allocated resources
-RuntimeError: module compiled against API version 0xe but this version of numpy is 0xd
-2024-05-09 21:09:54.750462: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
-Files already downloaded and verified
-Files already downloaded and verified
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.62s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.62s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.36s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.36s/it]
-1115
--------------Training DataSize: 100 current img index:1---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.93s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.93s/it]
-1115
--------------Training DataSize: 100 current img index:2---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.48s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.48s/it]
-1115
--------------Training DataSize: 100 current img index:3---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.37s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.37s/it]
-1115
--------------Training DataSize: 100 current img index:4---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.28s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.28s/it]
-1115
--------------Training DataSize: 100 current img index:5---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.88s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.88s/it]
-1115
--------------Training DataSize: 100 current img index:6---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.28s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.28s/it]
-1115
--------------Training DataSize: 100 current img index:7---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.36s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.36s/it]
-1115
--------------Training DataSize: 100 current img index:8---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.87s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.87s/it]
-1115
--------------Training DataSize: 100 current img index:9---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.83s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.83s/it]
-1115
--------------Training DataSize: 100 current img index:10---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.81s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.81s/it]
-1115
--------------Training DataSize: 100 current img index:11---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.78s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.78s/it]
-1115
--------------Training DataSize: 100 current img index:12---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.19s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.19s/it]
-1115
--------------Training DataSize: 100 current img index:13---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.37s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.37s/it]
-1115
--------------Training DataSize: 100 current img index:14---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.44s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.44s/it]
-1115
--------------Training DataSize: 100 current img index:15---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.39s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.39s/it]
-1115
--------------Training DataSize: 100 current img index:16---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.48s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.48s/it]
-1115
--------------Training DataSize: 100 current img index:17---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.55s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.55s/it]
-1115
--------------Training DataSize: 100 current img index:18---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.70s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.70s/it]
-1116
--------------Training DataSize: 100 current img index:19---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.98s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.98s/it]
-1115
--------------Training DataSize: 100 current img index:20---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.98s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.99s/it]
-1115
--------------Training DataSize: 100 current img index:21---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.63s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.63s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.82s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.82s/it]
-1149
--------------Training DataSize: 100 current img index:23---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.00s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.00s/it]
-1115
--------------Training DataSize: 100 current img index:24---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.67s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.67s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.90s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.90s/it]
-1115
--------------Training DataSize: 100 current img index:26---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.90s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.90s/it]
-1115
--------------Training DataSize: 100 current img index:27---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.92s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.92s/it]
-1115
--------------Training DataSize: 100 current img index:28---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.86s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.86s/it]
-1115
--------------Training DataSize: 100 current img index:29---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.80s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.80s/it]
-1115
--------------Training DataSize: 100 current img index:30---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.77s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.77s/it]
-1115
--------------Training DataSize: 100 current img index:31---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.78s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.78s/it]
-1115
--------------Training DataSize: 100 current img index:32---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.76s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.76s/it]
-1115
--------------Training DataSize: 100 current img index:33---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.79s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.79s/it]
-1115
--------------Training DataSize: 100 current img index:34---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.88s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.88s/it]
-1115
--------------Training DataSize: 100 current img index:35---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.84s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.84s/it]
-1115
--------------Training DataSize: 100 current img index:36---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.90s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.90s/it]
-1115
--------------Training DataSize: 100 current img index:37---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.85s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.85s/it]
-1115
--------------Training DataSize: 100 current img index:38---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.75s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.75s/it]
-1115
--------------Training DataSize: 100 current img index:39---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.73s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.73s/it]
-1115
--------------Training DataSize: 100 current img index:40---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.65s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.65s/it]
-1115
--------------Training DataSize: 100 current img index:41---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.76s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.76s/it]
-1115
--------------Training DataSize: 100 current img index:42---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.71s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.71s/it]
-1115
--------------Training DataSize: 100 current img index:43---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.65s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.65s/it]
-1115
--------------Training DataSize: 100 current img index:44---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.73s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.73s/it]
-1115
--------------Training DataSize: 100 current img index:45---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.74s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.74s/it]
-1115
--------------Training DataSize: 100 current img index:46---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.75s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.75s/it]
-1115
--------------Training DataSize: 100 current img index:47---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.70s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.70s/it]
-1115
--------------Training DataSize: 100 current img index:48---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.76s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.76s/it]
-1115
--------------Training DataSize: 100 current img index:49---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.74s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.74s/it]
-1115
--------------Training DataSize: 100 current img index:50---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.77s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.77s/it]
-1115
--------------Training DataSize: 100 current img index:51---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.74s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.74s/it]
-1115
--------------Training DataSize: 100 current img index:52---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.74s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.74s/it]
-1115
--------------Training DataSize: 100 current img index:53---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.81s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.81s/it]
-1115
--------------Training DataSize: 100 current img index:54---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.75s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.75s/it]
-1115
--------------Training DataSize: 100 current img index:55---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.75s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.75s/it]
-1115
--------------Training DataSize: 100 current img index:56---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.68s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.68s/it]
-1115
--------------Training DataSize: 100 current img index:57---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.56s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.56s/it]
-1115
--------------Training DataSize: 100 current img index:58---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.55s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.55s/it]
-1115
--------------Training DataSize: 100 current img index:59---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.58s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.58s/it]
-1115
--------------Training DataSize: 100 current img index:60---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.70s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.70s/it]
-1115
--------------Training DataSize: 100 current img index:61---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.66s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.67s/it]
-1115
--------------Training DataSize: 100 current img index:62---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.76s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.76s/it]
-1115
--------------Training DataSize: 100 current img index:63---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.27s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.27s/it]
-1115
--------------Training DataSize: 100 current img index:64---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.37s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.37s/it]
-1115
--------------Training DataSize: 100 current img index:65---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.99s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 34.00s/it]
-1115
--------------Training DataSize: 100 current img index:66---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.90s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.90s/it]
-1115
--------------Training DataSize: 100 current img index:67---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.06s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.06s/it]
-1115
--------------Training DataSize: 100 current img index:68---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.86s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.86s/it]
-1115
--------------Training DataSize: 100 current img index:69---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.93s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.94s/it]
-1115
--------------Training DataSize: 100 current img index:70---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.06s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.07s/it]
-1115
--------------Training DataSize: 100 current img index:71---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.64s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.64s/it]
-1140
--------------Training DataSize: 100 current img index:72---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:36<00:00, 36.05s/it]HopSkipJump: 100%|██████████| 1/1 [00:36<00:00, 36.05s/it]
-1115
--------------Training DataSize: 100 current img index:73---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.93s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.93s/it]
-1115
--------------Training DataSize: 100 current img index:74---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.97s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.97s/it]
-1115
--------------Training DataSize: 100 current img index:75---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:36<00:00, 36.04s/it]HopSkipJump: 100%|██████████| 1/1 [00:36<00:00, 36.04s/it]
-1115
--------------Training DataSize: 100 current img index:76---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.96s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.96s/it]
-1115
--------------Training DataSize: 100 current img index:77---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.96s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.96s/it]
-1115
--------------Training DataSize: 100 current img index:78---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.92s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.92s/it]
-1115
--------------Training DataSize: 100 current img index:79---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.57s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.57s/it]
-1115
--------------Training DataSize: 100 current img index:80---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.14s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.14s/it]
-1115
--------------Training DataSize: 100 current img index:81---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.05s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.05s/it]
-1115
--------------Training DataSize: 100 current img index:82---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.05s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.05s/it]
-1115
--------------Training DataSize: 100 current img index:83---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.10s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.10s/it]
-1115
--------------Training DataSize: 100 current img index:84---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.11s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.11s/it]
-1115
--------------Training DataSize: 100 current img index:85---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]
-1115
--------------Training DataSize: 100 current img index:86---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]
-1115
--------------Training DataSize: 100 current img index:87---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]
-1115
--------------Training DataSize: 100 current img index:88---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.49s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.49s/it]
-1115
--------------Training DataSize: 100 current img index:89---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.57s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.57s/it]
-1115
--------------Training DataSize: 100 current img index:90---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]
-1115
--------------Training DataSize: 100 current img index:91---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]
-1115
--------------Training DataSize: 100 current img index:92---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]
-1115
--------------Training DataSize: 100 current img index:93---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.43s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.43s/it]
-1115
--------------Training DataSize: 100 current img index:94---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.61s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.61s/it]
-1122
--------------Training DataSize: 100 current img index:95---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.43s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.44s/it]
-1115
--------------Training DataSize: 100 current img index:96---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.52s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.52s/it]
-1115
--------------Training DataSize: 100 current img index:97---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]
-1115
--------------Training DataSize: 100 current img index:98---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.40s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.40s/it]
-1115
--------------Training DataSize: 100 current img index:99---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.54s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.54s/it]
-1115
--------------Training DataSize: 100 current img index:100---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.45s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.45s/it]
-1115
--------------Training DataSize: 100 current img index:101---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.49s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.49s/it]
-1115
--------------Training DataSize: 100 current img index:102---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.50s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.50s/it]
-1115
--------------Training DataSize: 100 current img index:103---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.59s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.59s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.58s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.58s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.50s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.50s/it]
-1115
--------------Training DataSize: 100 current img index:106---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.60s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.60s/it]
-1158
--------------Training DataSize: 100 current img index:107---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]
-1115
--------------Training DataSize: 100 current img index:108---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.55s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.55s/it]
-1115
--------------Training DataSize: 100 current img index:109---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.50s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.50s/it]
-1115
--------------Training DataSize: 100 current img index:110---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]
-1115
--------------Training DataSize: 100 current img index:111---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.59s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.59s/it]
-1115
--------------Training DataSize: 100 current img index:112---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.46s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.46s/it]
-1115
--------------Training DataSize: 100 current img index:113---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.78s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.78s/it]
-1115
--------------Training DataSize: 100 current img index:114---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]
-1115
--------------Training DataSize: 100 current img index:115---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]
-1115
--------------Training DataSize: 100 current img index:116---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.59s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.59s/it]
-1115
--------------Training DataSize: 100 current img index:117---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.82s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.82s/it]
-1115
--------------Training DataSize: 100 current img index:118---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.07s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.07s/it]
-1173
--------------Training DataSize: 100 current img index:119---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]
-1115
--------------Training DataSize: 100 current img index:120---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.52s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.52s/it]
-1116
--------------Training DataSize: 100 current img index:121---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]
-1115
--------------Training DataSize: 100 current img index:122---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.45s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.45s/it]
-1115
--------------Training DataSize: 100 current img index:123---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.43s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.43s/it]
-1115
--------------Training DataSize: 100 current img index:124---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]
-1115
--------------Training DataSize: 100 current img index:125---------------
-1
--------------Training DataSize: 100 current img index:126---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]
-1115
--------------Training DataSize: 100 current img index:127---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]
-1115
--------------Training DataSize: 100 current img index:128---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.62s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.62s/it]
-1159
--------------Training DataSize: 100 current img index:129---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.58s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.58s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]
-1115
--------------Training DataSize: 100 current img index:131---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.47s/it]
-1115
--------------Training DataSize: 100 current img index:132---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]
-1115
--------------Training DataSize: 100 current img index:133---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.51s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.52s/it]
-1115
--------------Training DataSize: 100 current img index:134---------------
-1
--------------Training DataSize: 100 current img index:135---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.49s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.49s/it]
-1115
--------------Training DataSize: 100 current img index:136---------------
-1
--------------Training DataSize: 100 current img index:137---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.51s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.51s/it]
-1115
--------------Training DataSize: 100 current img index:138---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.54s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.54s/it]
-1115
--------------Training DataSize: 100 current img index:139---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.51s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.51s/it]
-1115
--------------Training DataSize: 100 current img index:140---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.58s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.58s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.56s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.56s/it]
-1115
--------------Training DataSize: 100 current img index:142---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.90s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.90s/it]
-1208
--------------Training DataSize: 100 current img index:143---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.84s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.84s/it]
-1115
--------------Training DataSize: 100 current img index:144---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.08s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.08s/it]
-1115
--------------Training DataSize: 100 current img index:145---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.35s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.35s/it]
-1115
--------------Training DataSize: 100 current img index:146---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.18s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.18s/it]
-1115
--------------Training DataSize: 100 current img index:147---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.28s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.28s/it]
-1115
--------------Training DataSize: 100 current img index:148---------------
-1
--------------Training DataSize: 100 current img index:149---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.46s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.46s/it]
-1115
--------------Training DataSize: 100 current img index:150---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.02s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.02s/it]
-1115
--------------Training DataSize: 100 current img index:151---------------
-1
--------------Training DataSize: 100 current img index:152---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.07s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.07s/it]
-1115
--------------Training DataSize: 100 current img index:153---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.01s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.01s/it]
-1115
--------------Training DataSize: 100 current img index:154---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.04s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.04s/it]
-1115
--------------Training DataSize: 100 current img index:155---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.52s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.52s/it]
-1115
--------------Training DataSize: 100 current img index:156---------------
-1
--------------Training DataSize: 100 current img index:157---------------
-1
--------------Training DataSize: 100 current img index:158---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:36<00:00, 36.30s/it]HopSkipJump: 100%|██████████| 1/1 [00:36<00:00, 36.30s/it]
-1145
--------------Training DataSize: 100 current img index:159---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.71s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.71s/it]
-1115
--------------Training DataSize: 100 current img index:160---------------
-1
--------------Training DataSize: 100 current img index:161---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.58s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.58s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.53s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.53s/it]
-1115
--------------Training DataSize: 100 current img index:163---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.59s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.59s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.49s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.50s/it]
-1115
--------------Training DataSize: 100 current img index:165---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.54s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.55s/it]
-1115
--------------Training DataSize: 100 current img index:166---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.81s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.81s/it]
-1115
--------------Training DataSize: 100 current img index:167---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.50s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.50s/it]
-1115
--------------Training DataSize: 100 current img index:168---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.53s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.53s/it]
-1115
--------------Training DataSize: 100 current img index:169---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.72s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.72s/it]
-1115
--------------Training DataSize: 100 current img index:170---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.76s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.76s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.47s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.47s/it]
-1115
--------------Training DataSize: 100 current img index:172---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.45s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.45s/it]
-1115
--------------Training DataSize: 100 current img index:173---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.14s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.14s/it]
-1115
--------------Training DataSize: 100 current img index:174---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.16s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.16s/it]
-1115
--------------Training DataSize: 100 current img index:175---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.84s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.84s/it]
-1115
--------------Training DataSize: 100 current img index:176---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.62s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.62s/it]
-1115
--------------Training DataSize: 100 current img index:177---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.22s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.23s/it]
-1115
--------------Training DataSize: 100 current img index:178---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.18s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.18s/it]
-1115
--------------Training DataSize: 100 current img index:179---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.97s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.97s/it]
-1115
--------------Training DataSize: 100 current img index:180---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.32s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.32s/it]
-1115
--------------Training DataSize: 100 current img index:181---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.20s/it]HopSkipJump: 100%|██████████| 1/1 [00:35<00:00, 35.20s/it]
-1115
--------------Training DataSize: 100 current img index:182---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.97s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.97s/it]
-1115
--------------Training DataSize: 100 current img index:183---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.54s/it]HopSkipJump: 100%|██████████| 1/1 [00:34<00:00, 34.54s/it]
-1115
--------------Training DataSize: 100 current img index:184---------------
-1
--------------Training DataSize: 100 current img index:185---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]
-1115
--------------Training DataSize: 100 current img index:186---------------
-1
--------------Training DataSize: 100 current img index:187---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.48s/it]
-1115
--------------Training DataSize: 100 current img index:188---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]
-1115
--------------Training DataSize: 100 current img index:189---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.43s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.43s/it]
-1115
--------------Training DataSize: 100 current img index:190---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]
-1115
--------------Training DataSize: 100 current img index:191---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.49s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.49s/it]
-1115
--------------Training DataSize: 100 current img index:192---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.56s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.57s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.46s/it]
-1115
--------------Training DataSize: 100 current img index:194---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.58s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.58s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.57s/it]HopSkipJump: 100%|██████████| 1/1 [00:02<00:00,  2.57s/it]
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.45s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.45s/it]
-1115
--------------Training DataSize: 100 current img index:197---------------
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.56s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.56s/it]
-1115
--------------Training DataSize: 100 current img index:198---------------
-1115
--------------Training DataSize: 100 current img index:199---------------
-inference time for each sample (HopSkipJump): 30.57362831711769
-Files already downloaded and verified
-Files already downloaded and verified
-queries: 6673
--------------Training DataSize: 100 current img index:0---------------
-queries: 6627
--------------Training DataSize: 100 current img index:1---------------
-queries: 6627
--------------Training DataSize: 100 current img index:2---------------
-queries: 6627
--------------Training DataSize: 100 current img index:3---------------
-queries: 6627
--------------Training DataSize: 100 current img index:4---------------
-queries: 6627
--------------Training DataSize: 100 current img index:5---------------
-queries: 6627
--------------Training DataSize: 100 current img index:6---------------
-queries: 6627
--------------Training DataSize: 100 current img index:7---------------
-queries: 6627
--------------Training DataSize: 100 current img index:8---------------
-queries: 6627
--------------Training DataSize: 100 current img index:9---------------
-queries: 6627
--------------Training DataSize: 100 current img index:10---------------
-queries: 6627
--------------Training DataSize: 100 current img index:11---------------
-queries: 6627
--------------Training DataSize: 100 current img index:12---------------
-queries: 6627
--------------Training DataSize: 100 current img index:13---------------
-queries: 6627
--------------Training DataSize: 100 current img index:14---------------
-queries: 6627
--------------Training DataSize: 100 current img index:15---------------
-queries: 6627
--------------Training DataSize: 100 current img index:16---------------
-queries: 6627
--------------Training DataSize: 100 current img index:17---------------
-queries: 6627
--------------Training DataSize: 100 current img index:18---------------
-queries: 6706
--------------Training DataSize: 100 current img index:19---------------
-queries: 6627
--------------Training DataSize: 100 current img index:20---------------
-queries: 6627
--------------Training DataSize: 100 current img index:21---------------
-queries: 6670
--------------Training DataSize: 100 current img index:22---------------
-queries: 6672
--------------Training DataSize: 100 current img index:23---------------
-queries: 6627
--------------Training DataSize: 100 current img index:24---------------
-queries: 6684
--------------Training DataSize: 100 current img index:25---------------
-queries: 6627
--------------Training DataSize: 100 current img index:26---------------
-queries: 6627
--------------Training DataSize: 100 current img index:27---------------
-queries: 6627
--------------Training DataSize: 100 current img index:28---------------
-queries: 6627
--------------Training DataSize: 100 current img index:29---------------
-queries: 6627
--------------Training DataSize: 100 current img index:30---------------
-queries: 6628
--------------Training DataSize: 100 current img index:31---------------
-queries: 6627
--------------Training DataSize: 100 current img index:32---------------
-queries: 6627
--------------Training DataSize: 100 current img index:33---------------
-queries: 6627
--------------Training DataSize: 100 current img index:34---------------
-queries: 6627
--------------Training DataSize: 100 current img index:35---------------
-queries: 6627
--------------Training DataSize: 100 current img index:36---------------
-queries: 6627
--------------Training DataSize: 100 current img index:37---------------
-queries: 6627
--------------Training DataSize: 100 current img index:38---------------
-queries: 6627
--------------Training DataSize: 100 current img index:39---------------
-queries: 6627
--------------Training DataSize: 100 current img index:40---------------
-queries: 6627
--------------Training DataSize: 100 current img index:41---------------
-queries: 6627
--------------Training DataSize: 100 current img index:42---------------
-queries: 6627
--------------Training DataSize: 100 current img index:43---------------
-queries: 6627
--------------Training DataSize: 100 current img index:44---------------
-queries: 6627
--------------Training DataSize: 100 current img index:45---------------
-queries: 6627
--------------Training DataSize: 100 current img index:46---------------
-queries: 6627
--------------Training DataSize: 100 current img index:47---------------
-queries: 6627
--------------Training DataSize: 100 current img index:48---------------
-queries: 6627
--------------Training DataSize: 100 current img index:49---------------
-queries: 6627
--------------Training DataSize: 100 current img index:50---------------
-queries: 6627
--------------Training DataSize: 100 current img index:51---------------
-queries: 6627
--------------Training DataSize: 100 current img index:52---------------
-queries: 6627
--------------Training DataSize: 100 current img index:53---------------
-queries: 6627
--------------Training DataSize: 100 current img index:54---------------
-queries: 6627
--------------Training DataSize: 100 current img index:55---------------
-queries: 6627
--------------Training DataSize: 100 current img index:56---------------
-queries: 6627
--------------Training DataSize: 100 current img index:57---------------
-queries: 6627
--------------Training DataSize: 100 current img index:58---------------
-queries: 6627
--------------Training DataSize: 100 current img index:59---------------
-queries: 6627
--------------Training DataSize: 100 current img index:60---------------
-queries: 6627
--------------Training DataSize: 100 current img index:61---------------
-queries: 6627
--------------Training DataSize: 100 current img index:62---------------
-queries: 6627
--------------Training DataSize: 100 current img index:63---------------
-queries: 6627
--------------Training DataSize: 100 current img index:64---------------
-queries: 6627
--------------Training DataSize: 100 current img index:65---------------
-queries: 6627
--------------Training DataSize: 100 current img index:66---------------
-queries: 6627
--------------Training DataSize: 100 current img index:67---------------
-queries: 6627
--------------Training DataSize: 100 current img index:68---------------
-queries: 6627
--------------Training DataSize: 100 current img index:69---------------
-queries: 6627
--------------Training DataSize: 100 current img index:70---------------
-queries: 6627
--------------Training DataSize: 100 current img index:71---------------
-queries: 6733
--------------Training DataSize: 100 current img index:72---------------
-queries: 6627
--------------Training DataSize: 100 current img index:73---------------
-queries: 6627
--------------Training DataSize: 100 current img index:74---------------
-queries: 6627
--------------Training DataSize: 100 current img index:75---------------
-queries: 6627
--------------Training DataSize: 100 current img index:76---------------
-queries: 6627
--------------Training DataSize: 100 current img index:77---------------
-queries: 6627
--------------Training DataSize: 100 current img index:78---------------
-queries: 6627
--------------Training DataSize: 100 current img index:79---------------
-queries: 6627
--------------Training DataSize: 100 current img index:80---------------
-queries: 6627
--------------Training DataSize: 100 current img index:81---------------
-queries: 6627
--------------Training DataSize: 100 current img index:82---------------
-queries: 6627
--------------Training DataSize: 100 current img index:83---------------
-queries: 6627
--------------Training DataSize: 100 current img index:84---------------
-queries: 6627
--------------Training DataSize: 100 current img index:85---------------
-queries: 6627
--------------Training DataSize: 100 current img index:86---------------
-queries: 6627
--------------Training DataSize: 100 current img index:87---------------
-queries: 6627
--------------Training DataSize: 100 current img index:88---------------
-queries: 6627
--------------Training DataSize: 100 current img index:89---------------
-queries: 6627
--------------Training DataSize: 100 current img index:90---------------
-queries: 6627
--------------Training DataSize: 100 current img index:91---------------
-queries: 6627
--------------Training DataSize: 100 current img index:92---------------
-queries: 6627
--------------Training DataSize: 100 current img index:93---------------
-queries: 6627
--------------Training DataSize: 100 current img index:94---------------
-queries: 6898
--------------Training DataSize: 100 current img index:95---------------
-queries: 6627
--------------Training DataSize: 100 current img index:96---------------
-queries: 6627
--------------Training DataSize: 100 current img index:97---------------
-queries: 6627
--------------Training DataSize: 100 current img index:98---------------
-queries: 6627
--------------Training DataSize: 100 current img index:99---------------
-queries: 6627
--------------Training DataSize: 100 current img index:100---------------
-queries: 6627
--------------Training DataSize: 100 current img index:101---------------
-queries: 6627
--------------Training DataSize: 100 current img index:102---------------
-queries: 6627
--------------Training DataSize: 100 current img index:103---------------
-queries: 6631
--------------Training DataSize: 100 current img index:104---------------
-queries: 6628
--------------Training DataSize: 100 current img index:105---------------
-queries: 6627
--------------Training DataSize: 100 current img index:106---------------
-queries: 6765
--------------Training DataSize: 100 current img index:107---------------
-queries: 6627
--------------Training DataSize: 100 current img index:108---------------
-queries: 6627
--------------Training DataSize: 100 current img index:109---------------
-queries: 6627
--------------Training DataSize: 100 current img index:110---------------
-queries: 6627
--------------Training DataSize: 100 current img index:111---------------
-queries: 6627
--------------Training DataSize: 100 current img index:112---------------
-queries: 6627
--------------Training DataSize: 100 current img index:113---------------
-queries: 6627
--------------Training DataSize: 100 current img index:114---------------
-queries: 6627
--------------Training DataSize: 100 current img index:115---------------
-queries: 6627
--------------Training DataSize: 100 current img index:116---------------
-queries: 6627
--------------Training DataSize: 100 current img index:117---------------
-queries: 6627
--------------Training DataSize: 100 current img index:118---------------
-queries: 6679
--------------Training DataSize: 100 current img index:119---------------
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-HopSkipJump:   0%|          | 0/1 [00:00<?, ?it/s]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.44s/it]HopSkipJump: 100%|██████████| 1/1 [00:33<00:00, 33.45s/it]slurmstepd-gypsum-gpu181: error: *** STEP 22703936.0 ON gypsum-gpu181 CANCELLED AT 2024-05-10T05:10:01 DUE TO TIME LIMIT ***
-slurmstepd-gypsum-gpu181: error: container_p_join: open failed for /var/tmp//gypsum-gpu181/22703936/.ns: No such file or directory
-slurmstepd-gypsum-gpu181: error: container_g_join(22703936): No such file or directory
-srun: error: gypsum-gpu181: task 0: Terminated
-/home/yuefengpeng_umass_edu/miniconda3/envs/all/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1327: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/yuefengpeng_umass_edu/miniconda3/envs/all/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1327: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/yuefengpeng_umass_edu/miniconda3/envs/all/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1327: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/yuefengpeng_umass_edu/miniconda3/envs/all/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1327: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-Generate Data...
-Traceback (most recent call last):
-  File "label_only.py", line 280, in <module>
-    # Save
-  File "label_only.py", line 196, in main
-    if config.label_only.blackadvattack == 'all':
-  File "label_only.py", line 96, in load_saved_results
-    data = np.load(os.path.join(data_path, f'{world_size}_{rank}.npz'))
-  File "/home/yuefengpeng_umass_edu/miniconda3/envs/all/lib/python3.8/site-packages/numpy/lib/npyio.py", line 416, in load
-    fid = stack.enter_context(open(os_fspath(file), "rb"))
-FileNotFoundError: [Errno 2] No such file or directory: './saved_data/target1/num_sample100/QEBA/1_0.npz'
