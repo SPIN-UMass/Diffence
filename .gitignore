@@ -79,6 +79,7 @@ cifar10/label-only-attacks/
 cifar10/slurm_evaluate_MIAs/
 cifar100/evaluate_MIAs/data/
 cifar100/slurm_evaluate_MIAs/
+cifar10/label-only*
 svhn/evaluate_MIAs/data/
 svhn/slurm_evaluate_MIAs/
-cifar10/label-only*
+svhn/label-only-attacks/
