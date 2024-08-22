@@ -1,6 +1,6 @@
 # Diffence: Fencing Membership Privacy With Diffusion Models
 
-This repository contains the code for the paper "Diffence: Fencing Membership Privacy With Diffusion Models," currently under review for NDSS 2025.
+This repository contains the code for the paper "Diffence: Fencing Membership Privacy With Diffusion Models," currently under review for [NDSS 2025](https://www.ndss-symposium.org/ndss2025/).
 
 Diffence is a robust plug-and-play defense mechanism designed to enhance the membership privacy of both undefended models and models trained with state-of-the-art defenses without compromising model utility.
 
