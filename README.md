@@ -1,5 +1,7 @@
 # Diffence: Fencing Membership Privacy With Diffusion Models
 
+This repository contains the code for the paper "Diffence: Fencing Membership Privacy With Diffusion Models," currently under review for NDSS 2025.
+
 Diffence is a robust plug-and-play defense mechanism designed to enhance the membership privacy of both undefended models and models trained with state-of-the-art defenses without compromising model utility.
 
 ## Table of Contents
@@ -53,11 +55,7 @@ Diffence is a robust plug-and-play defense mechanism designed to enhance the mem
 
 ### Execution
 
-1. Train the undefended model and models with existing defenses:
-
-    ```bash
-    bash all-train-all.sh
-    ```
+1. Obtain the undefended model and models with existing defenses:
 
     Our pretrained models are available [here](https://drive.google.com/drive/folders/1KNn7ycsjSaQ-wpfpz-UgY2cPuvrdEMLL?usp=sharing). Copy them to the `final-all-models` folder, e.g., `cifar10/final-all-models/resnet/selena.pth.tar`.
 
