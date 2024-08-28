@@ -84,3 +84,4 @@ svhn/evaluate_MIAs/data/
 svhn/slurm_evaluate_MIAs/
 svhn/label-only-attacks/
 download_all_models.py
+download_all_models.py
