@@ -45,6 +45,8 @@ os.chdir('../')
 
 assert torch.cuda.is_available()
 
+torch.manual_seed(20240814)
+
 def parse_config(config_path=None):
     with open(config_path, 'r') as f:
         config = yaml.load(f, Loader=yaml.Loader)
