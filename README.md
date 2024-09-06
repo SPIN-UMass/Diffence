@@ -1,8 +1,8 @@
 # Diffence: Fencing Membership Privacy With Diffusion Models
 
-This repository contains the code for the paper "Diffence: Fencing Membership Privacy With Diffusion Models," currently under review for [NDSS 2025](https://www.ndss-symposium.org/ndss2025/).
+This repository contains the code for the paper "Diffence: Fencing Membership Privacy With Diffusion Models," accepted by **NDSS 2025**.
 
-Diffence is a robust plug-and-play defense mechanism designed to enhance the membership privacy of both undefended models and models trained with state-of-the-art defenses without compromising model utility.
+**Diffence** is a robust plug-and-play defense mechanism designed to enhance the membership privacy of both undefended models and models trained with state-of-the-art defenses, without compromising model utility.
 
 ## Table of Contents
 
@@ -12,6 +12,7 @@ Diffence is a robust plug-and-play defense mechanism designed to enhance the mem
   - [Execution](#execution)
   - [Results](#results)
 - [Evaluation](#evaluation)
+- [Acknowledgments](#acknowledgments)
 
 ## Installation
 
@@ -75,3 +76,11 @@ After completion, the results of the above experiments will be saved in the `./r
 The results will be saved in `Diffence/[dataset_name]/evaluate_MIAs/results`. For example, `selena` and `selena_w_diffence` correspond to the results of using SELENA defense alone and deploying Diffence on top of it, respectively.
 
 
+## Acknowledgments
+
+The implementation of Diffence builds upon code from the following repositories:
+
+- [https://github.com/DependableSystemsLab/MIA_defense_HAMP](https://github.com/DependableSystemsLab/MIA_defense_HAMP)
+- [https://github.com/JinyiW/GuidedDiffusionPur](https://github.com/JinyiW/GuidedDiffusionPur)
+
+We greatly appreciate the contributions from these works.
